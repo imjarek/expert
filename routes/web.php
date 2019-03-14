@@ -15,7 +15,18 @@ Route::get('/', function () {
     return view('main');
 });
 
+Route::get('/about', function () {
 
+});
+
+Route::prefix('panel')->group(function () {
+    Route::get('/', function () {
+        return view('panel.main');
+    });
+    Route::get('/courses', function () {
+        return view('panel.courses');
+    });
+});
 
 Route::resource('courses', 'CourseController');
 
