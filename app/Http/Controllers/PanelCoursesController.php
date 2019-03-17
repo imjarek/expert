@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\CoursesType;
 use Illuminate\Http\Request;
 use App\Course;
+use Illuminate\Support\Facades\Validator;
 
-class CourseController extends Controller
+class PanelCoursesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('courses', ['courses' => Course::all()]);
+        return view('panel.courses', ['courses' => Course::all()]);
     }
 
     /**
@@ -24,7 +26,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        return view('panel.forms.course_create', ['courses_types' => CoursesType::all()]);
     }
 
     /**
@@ -35,7 +37,11 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(['title' => 'required|string', 'type_id' => 'required|integer', 'announcement' => 'required']);
+
+        Course::create($request->all());
+
+        return view('panel.forms.course_edit');
     }
 
     /**
@@ -46,7 +52,8 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        //
+        $course = Course::find($id);
+        return view('panel.course', ['course' => $course]);
     }
 
     /**
@@ -55,9 +62,10 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $course = Course::find($id);
+        return view('panel.forms.course_edit', ['course' => $course, 'courses_types' => CoursesType::all()]);
     }
 
     /**
@@ -69,7 +77,16 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), ['title' => 'required']);
+        if ($validator->fails()) {
+            return redirect('/panel/courses/' . $id . '/edit')
+                ->withInput()
+                ->withErrors($validator);
+        }
+
+        $course = Course::find($id);
+        $course->update($request->all());
+        return view('panel.course', ['course' => $course]);
     }
 
     /**
