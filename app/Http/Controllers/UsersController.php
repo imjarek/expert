@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\UserEnrolled;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -80,5 +83,23 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function enroll(Request $request){
+
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'course' => 'required'
+        ]);
+        $subject = 'Запись на курс с сайта';
+
+        $data = $request->all();
+        $to = User::where('email', env('MAIL_TO'))->first();
+        if (!$to) {
+            $to = User::create(['email' => env('MAIL_TO'), 'name' => 'configured mail receiver', 'password' => 'asdfjkl;']);
+        }
+        Mail::to($to)->send(new UserEnrolled($data));
+        return view('enrolled', ['data' => $data]);
     }
 }

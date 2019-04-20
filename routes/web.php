@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function(){
+    return redirect('main');
+});
+Route::get('/main', function () {
     return view('main');
 });
 
@@ -26,12 +29,12 @@ Route::prefix('panel')->group(function () {
     Route::resource('courses', 'PanelCoursesController');
 });
 
-Route::resource('courses', 'CourseController');
+Route::resource('courses', 'CoursesController');
 
 Route::resource('order', 'OrderController');
 
-
-Route::post('enroll', function ($data){
-
-    return view('enrolled');
+Route::get('schedule', function () {
+    return view('schedule');
 });
+
+Route::post('/enroll', 'UsersController@enroll');
