@@ -29,3 +29,9 @@ Route::prefix('panel')->group(function () {
 Route::resource('courses', 'CourseController');
 
 Route::resource('order', 'OrderController');
+
+
+Route::post('enroll', function ($data){
+
+    return view('enrolled');
+});
