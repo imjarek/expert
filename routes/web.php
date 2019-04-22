@@ -38,3 +38,7 @@ Route::get('schedule', function () {
 });
 
 Route::post('/enroll', 'UsersController@enroll');
+
+Route::get('/pages/{page}', function (Request $request, $page){
+    return view("pages.$page");
+});

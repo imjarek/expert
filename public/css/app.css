@@ -156,3 +156,10 @@ h1, h2, h3, h4, h5, h6 {
     border-width: 1px;
     border-color: #005cbf;
 }
+
+.teacher-pic {
+    margin: 20px;
+    padding: 5px;
+    border-radius: 6px;
+    border-width: 0px;
+}

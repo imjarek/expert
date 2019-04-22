@@ -28,7 +28,7 @@
                 <div class="card-body d-flex flex-column align-items-start">
                     <strong class="d-inline-block mb-2 text-primary">Курс</strong>
                     <h3 class="mb-0">
-                        <a class="text-dark" href="/courses/child-fitness">Детский фитнес</a>
+                        <a class="text-dark" href="/pages/child-fitness">Детский фитнес</a>
                     </h3>
                     <h4 class="mb-0">
                         дети 3-6 лет
@@ -40,7 +40,7 @@
                         2. Особенности развития физических качеств детей 3-6 лет.
                         3. Структура и содержание занятий по детском фитнесу.
                     </p>
-                    <a href="/courses/child-fitness">Узнать больше</a>
+                    <a href="/pages/child-fitness">Узнать больше</a>
                 </div>
                 <img class="card-img-right flex-auto d-none d-md-block" data-src="" alt="" style="width: 200px; height: 250px;" src="/images/child.jpg" data-holder-rendered="true">
             </div>
@@ -67,7 +67,96 @@
                     </p>
                     <a href="/courses/aero-step"></a>
                 </div>
-                <img class="card-img-right flex-auto d-none d-md-block" data-src="" alt="" src="images/step-aero.jpg" data-holder-rendered="true" style="width: 200px; height: 250px;">
+                <img class="card-img-right flex-auto d-none d-md-block" data-src="" alt="" src="/images/step-aero.jpg" data-holder-rendered="true" style="width: 200px; height: 250px;">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-400">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-success">Курс</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark" href="pages/fitness-testing">Фитнес-тестирование</a>
+                    </h3>
+                    <h4 class="mb-0">
+                        (продвинутый уровень)
+                    </h4>
+                    <div class="mb-1 text-muted">1 день 8 часов</div>
+                    <p class="card-text mb-auto">
+                        Это курс расчитан как на начинающих так и продвинутых фитнес-тренеров, а также всем, кто занимается фитнесом или спортом и хочет научиться
+                        оценивать свое состояние и познакомиться с техниками контроля изменений в своем организме
+
+                    </p>
+                    <a href="pages/fitness-testing">Подробнее</a>
+                </div>
+                <img class="card-img-right flex-auto d-none d-md-block" data-src="" alt="" src="/images/fitness-testing.png" data-holder-rendered="true" style="width: 200px; height: 250px;">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-400">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-success">Семинар-тренинг</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark" href="/pages/perinatal">Фитнес в перинатальном периоде</a>
+                    </h3>
+                    <h4 class="mb-0">
+                        (базовый уровень)
+                    </h4>
+                    <div class="mb-1 text-muted">4 дня</div>
+                    <p class="card-text mb-auto">
+                        Этот семинар-тренинг специально разработан для женщин планирующих оставаться в отличной форме во время будущей беременности, а так же для действующих инструкторов
+                        по фитнесу и хочет изучить новое направление в фитнесе
+                    </p>
+                    <a href="/pages/perinatal"></a>
+                </div>
+                <img class="card-img-right flex-auto d-none d-md-block" data-src="" alt="" src="/images/perinatal.png" data-holder-rendered="true" style="width: 200px; height: 250px;">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-400">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-success">Семинар-тренинг</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark">Теория и практика ведения тренинга. Освоение
+                            основных инструментов тренера</a>
+                    </h3>
+                    <h4 class="mb-0">
+                        (продвинутый уровень)
+                    </h4>
+                    <div class="mb-1 text-muted">16 академических часов 2 дня</div>
+                    <p class="card-text mb-auto">
+                        Программа предназначена для психологов, практикующих тренеров,
+                        студентов старших курсов профильных факультетов. Могут участвовать все,
+                        кому тренинг личностного роста интересен с профессиональной точки
+                        зрения, кто хотел бы освоить групповую форму психологической работы,
+                        развить и усовершенствовать свои практические навыки.
+                    </p>
+                    <a href="/pages/perinatal"></a>
+                </div>
+                <img class="card-img-right flex-auto d-none d-md-block" data-src="" alt="" src="/images/trainers.jpg" data-holder-rendered="true" style="width: 200px; height: 250px;">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-400">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-success">Семинар-тренинг</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark">Практика работы с предстрессовыми и
+                            стрессовыми состояниями</a>
+                    </h3>
+                    <h4 class="mb-0">
+                        (базовый уровень)
+                    </h4>
+                    <div class="mb-1 text-muted">2 дня</div>
+                    <p class="card-text mb-auto">
+                        Семинар – тренинг адресован широкому кругу практических психологов,
+                        психологам-консультантам, ведущим групп личностного роста, спортивным
+                        психологам, фитнес-тренерам, студентам старших курсов профильных
+                        факультетов, а так же всем заинтересованным в долговременном сохранении
+                        работоспособности, восстановлении и дальнейшем развитии природных
+                        возможностей человека.
+                    </p>
+                </div>
+                <img class="card-img-right flex-auto d-none d-md-block" data-src="" alt="" src="/images/sport-girl.jpg" data-holder-rendered="true" style="width: 200px; height: 250px;">
             </div>
         </div>
     </div>
@@ -133,6 +222,7 @@
 
                 <h3><strong>Филимонова Оксана Сергеевна</strong></h3>
                 <p>
+                    <img class="teacher-pic" src="images/filimonova.jpg" style="float: left">
                     Директор центра, кандидат педагогических наук, 	доцент по специальности <em><strong>"Теория и 	методика физического воспитания, 	спортивной тренировки, оздоровительной 	и адаптивной физической культуры"</strong></em>
 
                 <ul>
@@ -145,6 +235,25 @@
                 </p>
                 <h3><strong>Хорошун Марина Эдуардовна
                     </strong></h3>
+                <p>
+                    <img class="teacher-pic" src="images/horoshun.jpg" style="float:left">
+                    Ппсихолог-практик, магистр по
+                    направлению подготовки «Психолого-педагогическое образование».
+                    Педагогический стаж работы 16 лет (преподаватель кафедры
+                    психологии) в ФГБОУ ВО Кубанский государственный университет
+                    физической культуры, спорта и туризма, г. Краснодар. Психологический
+                    стаж работы – 22 года.</p>
+                <p>
+                    Удостоверения и сертификаты по следующим направлениям:</p>
+                <p>
+                    «Методологии тренинговых занятий», «Основы психологического
+                    консультирования: теория и практика», «Методика и практика
+                    профконсультирования», «Введение в психодраму», «Введение в
+                    футуропрактику», «Формы, методы и содержание работы психолога-
+                    профконсультанта», «Теория и практика Сказкотерапии», «Краткосрочное
+                    психологическое консультирование (консультирование, ориентированное на
+                    решение)».
+                </p>
                 <h3><strong>Ерастова Галина</strong></h3>
             </div>
 
