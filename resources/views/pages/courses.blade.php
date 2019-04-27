@@ -141,6 +141,31 @@
             <div class="card-body d-flex flex-column align-items-start">
                 <strong class="d-inline-block mb-2 text-success">Семинар-тренинг</strong>
                 <h3 class="mb-0">
+                    <a class="text-dark">Диагностика физического состояния в фитнесе</a>
+                </h3>
+                <h4 class="mb-0">
+                    (продвинутый уровень)
+                </h4>
+                <div class="mb-1 text-muted">1 день 8 академических часов</div>
+                <p class="card-text mb-auto">
+                <p>1. Анкетирование в фитнесе: составные части, анализ результатов.
+                2. Разновидности врачебно-педагогического контроля в фитнесе.<br>
+                3. Понятие о физическом состоянии и его компонентах.<br>
+                4. Методы определения физического развития.<br>
+                5. Способы оценки функционального состояния занимающихся.<br>
+                6. Определение понятия физической подготовленности, методы определения степени развития физических качеств.<br>
+                7. Методика проведения соматоскопического исследования.<br>
+                8. Диагностика психоэмоционального состояния.<br>
+                </p>
+            </div>
+            <img class="card-img-right flex-auto d-none d-md-block" data-src="" alt="" src="/images/girl-testing.png" data-holder-rendered="true" style="width: 200px; height: 250px;">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card flex-md-row mb-4 box-shadow h-md-400">
+            <div class="card-body d-flex flex-column align-items-start">
+                <strong class="d-inline-block mb-2 text-success">Семинар-тренинг</strong>
+                <h3 class="mb-0">
                     <a class="text-dark">Практика работы с предстрессовыми и
                         стрессовыми состояниями</a>
                 </h3>
