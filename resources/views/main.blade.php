@@ -73,8 +73,8 @@
             <div class="p-3">
                 <h4 class="font-italic">Мы в соц. сетях</h4>
                 <ol class="list-unstyled">
-                    <li><a href="https://vk.com">Vk.com</a></li>
-                    <li><a href="https://facebook.com">Facebook</a></li>
+                    <li><a href="http://vk.com/club181150794"><img class="social-icon" src="/images/vk.png"></a></li>
+                    {{--<li><a href="https://facebook.com">Facebook</a></li>--}}
                 </ol>
             </div>
         </aside><!-- /.blog-sidebar -->
