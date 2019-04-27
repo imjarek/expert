@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Mail\UserEnrolled;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Log;
+use Notification;
+use App\Notifications\UserEnrolled as UserEnrolledSms;
 use App\User;
 
 class UsersController extends Controller
@@ -92,7 +95,6 @@ class UsersController extends Controller
             'phone' => 'required',
             'course' => 'required'
         ]);
-        $subject = 'Запись на курс с сайта';
 
         $data = $request->all();
         $to = User::where('email', env('MAIL_TO'))->first();
@@ -100,6 +102,13 @@ class UsersController extends Controller
             $to = User::create(['email' => env('MAIL_TO'), 'name' => 'configured mail receiver', 'password' => 'asdfjkl;']);
         }
         Mail::to($to)->send(new UserEnrolled($data));
+
+        try {
+            Notification::route('twilio', env('SMS_TO'))
+                ->notify(new UserEnrolledSms($data));
+        } catch (\Exception $e) {
+            Log::error('Could not send sms: ' . $e->getMessage());
+        }
         return view('enrolled', ['data' => $data]);
     }
 }
