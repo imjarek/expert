@@ -43,8 +43,8 @@
             <a class="p-2 text-muted" href="/main#courses">Курсы</a>
             <a class="p-2 text-muted" href="/schedule">Расписание</a>
             <a class="p-2 text-muted" href="/main#teachers">Преподаватели</a>
-            <a class="p-2 text-muted" href="/pages/licences">Лицензии</a>
-            <a class="p-2 text-muted" href="/main#contacts">Контакты</a>
+            <a class="p-2 text-muted" href="/pages/licences">Лицензия</a>
+            <a class="p-2 text-muted" href="/pages/contacts">Контакты</a>
         </nav>
     </div>
 

@@ -262,3 +262,8 @@ h1, h2, h3, h4, h5, h6 {
         width: 100%;
     }
 }
+
+.course-caption {
+    font-size: 16px;
+    font-color: grey;
+}
