@@ -12,7 +12,7 @@
 
             <div class="form-group">
                 <label for="content"></label>
-                <input type="textarea" class="form-control" name="content" id="content" placeholder="Контент" value="{{ $content }}">
+                <input type="textarea" id="text-editor" class="form-control" name="content" id="content" placeholder="Контент" value="{{ $content }}">
             </div>
             <!-- Add Task Button -->
             <div class="form-group">

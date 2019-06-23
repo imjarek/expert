@@ -3,6 +3,7 @@
 @extends('layouts.panel')
 
 @section('title', 'Страницы сайта')
+
 @section('content')
 
     <div class="container">
