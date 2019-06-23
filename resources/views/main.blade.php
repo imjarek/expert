@@ -55,7 +55,7 @@
 
         <aside class="col-md-4 blog-sidebar">
             <div class="p-3 mb-3 bg-light rounded">
-                <h4 class="font-italic">Лицензии</h4>
+                <h4 class="font-italic">Лицензия</h4>
                 <p class="mb-0">Мы ведем свою деятельность на основе Лицензии Министерства образования, науки и молодёжной политики Краснодарского края № 08972 от 29 марта 2019 г.
                 </p>
                 <p class="lead mb-0"><a href="/pages/licences" class="text-info font-weight-bold">Посмотреть...</a></p>

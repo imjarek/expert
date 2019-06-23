@@ -22,10 +22,20 @@ Route::get('/about', function () {
 
 });
 
+
+
 Route::prefix('panel')->group(function () {
     Route::get('/', function () {
         return view('panel.main');
     });
+    Route::prefix('pages')->group(function (){
+        Route::get('/', 'PageController@index');
+        Route::get('{page}', 'PageController@show');
+        Route::post('{page}/save', 'PageController@store');
+        Route::get('create', 'PageController@create');
+        Route::get('edit/{page}', 'PageController@edit');
+    });
+
     Route::resource('courses', 'PanelCoursesController');
 });
 
@@ -33,15 +43,6 @@ Route::resource('courses', 'CoursesController');
 
 Route::resource('order', 'OrderController');
 
-Route::get('schedule', function () {
-    return view('schedule');
-});
-
 Route::post('/enroll', 'UsersController@enroll');
 
-Route::get('/pages/{page}', function (Request $request, $page){
-    if (view()->exists("pages.$page"))
-        return view("pages.$page");
-    else
-        throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-});
+

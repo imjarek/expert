@@ -41,7 +41,7 @@
         <nav class="nav d-flex justify-content-between">
             <a class="p-2 text-muted" href="/main#about">О нас</a>
             <a class="p-2 text-muted" href="/main#courses">Курсы</a>
-            <a class="p-2 text-muted" href="/schedule">Расписание</a>
+            <a class="p-2 text-muted" href="/pages/schedule">Расписание</a>
             <a class="p-2 text-muted" href="/main#teachers">Преподаватели</a>
             <a class="p-2 text-muted" href="/pages/licences">Лицензия</a>
             <a class="p-2 text-muted" href="/pages/contacts">Контакты</a>
@@ -54,6 +54,7 @@
 <main role="main" class="container">
 
     @include('common.errors')
+    @component('common.alert')
     @yield('content')
 
 </main><!-- /.container -->
