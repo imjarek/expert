@@ -26,7 +26,7 @@ class PageController extends Controller
 
     public function show($page){
         if (view()->exists("pages.$page")) {
-            return view("pages.$page");
+            return view("page-box", ['page' => $page]);
         }
         else
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -36,20 +36,25 @@ class PageController extends Controller
             return view("panel.main")->withErrors(['Страница не существует']);
         }
         $content = file_get_contents(resource_path("views/pages/$page.blade.php"));
-        return view('panel.forms.page_edit', ['content' => $content]);
+        return view('panel.forms.page_edit', ['page' => $page, 'content' => $content]);
     }
 
     public function create(){
-        return view('panel.forms.page_edit', ['newPage' => true ]);
+        return view('panel.forms.page_edit');
     }
 
-    public function store($page, $pageContent){
-        if (view()->exists("pages.$page")) {
+    public function store($page, Request $request){
+        $request->validate(['content' => 'required']);
+
+        if (!view()->exists("pages.$page")) {
             throw new \Exception('Страница не найдена');
         }
-        $file = base_path() . 'pages/' . $page . '.blade.php';
-        file_put_contents($file, $pageContent);
-        return view('panel.main', [
+        $file = resource_path('/views/pages/' . $page . '.blade.php');
+        $content = $request->input('content');
+        file_put_contents($file, $content);
+        return view('panel.forms.page_edit', [
+            'page' => $page,
+            'content' => $content,
             'message' => 'Страница обновлена. <a href="'. env('APP_URL') . '/pages/' . $page . '">Посмотреть</a>'
         ]);
 

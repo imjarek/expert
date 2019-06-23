@@ -1,14 +1,3 @@
-@extends('layouts.expert')
-
-@section('title', 'Курсы подготовки фитнес-тренеров')
-
-@section('sidebar')
-    @parent
-
-    {{--<p>This is appended to the master sidebar.</p>--}}
-@endsection
-
-@section('content')
 
 <div class="row" id="licenses">
     <div class="col-md-6">
@@ -35,4 +24,3 @@
     <img class="modal-content" id="lic_modal">
     <div id="caption"></div>
 </div>
-    @endsection

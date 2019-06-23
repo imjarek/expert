@@ -1,14 +1,3 @@
-@extends('layouts.expert')
-
-@section('title', 'Курсы подготовки фитнес-тренеров')
-
-@section('sidebar')
-    @parent
-
-    {{--<p>This is appended to the master sidebar.</p>--}}
-@endsection
-
-@section('content')
 <div class="row" id="about">
     <div class="col-md-8 blog-main">
         <h3 class="pb-3 mb-4 font-italic border-bottom">

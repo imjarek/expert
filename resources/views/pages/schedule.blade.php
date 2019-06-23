@@ -1,15 +1,4 @@
 
-@extends('layouts.expert')
-
-@section('title', 'Расписание Май-Июнь 2019')
-
-@section('sidebar')
-    @parent
-
-    {{--<p>This is appended to the master sidebar.</p>--}}
-@endsection
-
-@section('content')
 
     <main role="main" class="container">
 
@@ -164,4 +153,3 @@
         </TABLE>
 
     </main>
-@endsection

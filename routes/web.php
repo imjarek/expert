@@ -23,21 +23,25 @@ Route::get('/about', function () {
 });
 
 
+Route::get('pages/{page}', 'PageController@show');
 
-Route::prefix('panel')->group(function () {
+Route::prefix('panel')->middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('panel.main');
     });
     Route::prefix('pages')->group(function (){
         Route::get('/', 'PageController@index');
-        Route::get('{page}', 'PageController@show');
-        Route::post('{page}/save', 'PageController@store');
         Route::get('create', 'PageController@create');
         Route::get('edit/{page}', 'PageController@edit');
+        Route::post('{page}', 'PageController@store');
     });
 
     Route::resource('courses', 'PanelCoursesController');
 });
+
+Route::get('panel/login', array('uses' => 'Auth\LoginController@showLogin'))->name('login');;
+Route::get('panel/logout', array('uses' => 'Auth\LoginController@doLogout'));
+Route::post('panel/login', array('uses' => 'Auth\LoginController@doLogin'));
 
 Route::resource('courses', 'CoursesController');
 
