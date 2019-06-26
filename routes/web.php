@@ -22,6 +22,8 @@ Route::get('/about', function () {
 
 });
 
+Route::get('image-upload', 'Controller@imageUpload');
+Route::post('image-upload', 'Controller@imageUploadPost');
 
 Route::get('pages/{page}', 'PageController@show');
 
