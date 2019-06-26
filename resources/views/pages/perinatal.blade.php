@@ -1,14 +1,3 @@
-
-@extends('layouts.expert')
-
-@section('title', 'Детский фитнес')
-
-@section('sidebar')
-    @parent
-
-@endsection
-
-@section('content')
     <strong>&quot;Фитнес в перинатальном периоде&quot;</strong>
 
     <p>Этот семинар для тех, кто:</p>
@@ -42,5 +31,3 @@
             занятий
         </li>
     </ul>
-
-@endsection

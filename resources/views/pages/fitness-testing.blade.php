@@ -1,13 +1,3 @@
-
-@extends('layouts.expert')
-
-@section('title', 'Семинар по фитнес-тестированию')
-
-@section('sidebar')
-    @parent
-@endsection
-
-@section('content')
 <p dir="ltr"><strong>Семинар по фитнес-тестированию</strong></p>
 
 <p dir="ltr"><span style="font-size:14pt">1 день 8 часов академических 2500 р.</span></p>
@@ -63,4 +53,3 @@
 (прибор для измерения толщины жировой складки) в подарок!
 Первому внесшему полную оплату за семинар пульсомер в подарок!
 <div>&nbsp;</div>
-@endsection
