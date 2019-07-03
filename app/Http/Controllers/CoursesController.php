@@ -14,7 +14,7 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        return view('courses', ['courses' => Course::all()]);
+        return view('courses', ['courses' => Course::orderBy('order')->all()]);
     }
 
     /**
@@ -46,7 +46,7 @@ class CoursesController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('course', ['course' => Course::find($id)]);
     }
 
     /**

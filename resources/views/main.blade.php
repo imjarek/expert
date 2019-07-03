@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    @include('pages.courses')
+    @include('courses')
 
     @include('pages.enroll')
     </div>

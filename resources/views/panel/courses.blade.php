@@ -20,7 +20,7 @@
     </div>
     @foreach($courses as $course)
 
-        <div class="col-md-10">
+        <div class="col-md-12">
 
             <!-- Dropdown Card Example -->
             <div class="card shadow mb-4">

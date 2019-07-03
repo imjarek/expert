@@ -17,7 +17,7 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->text('title');
-            $table->text('announcement');
+            $table->text('announcement')->nullable();
             $table->text('tags')->nullable();
             $table->longText('description')->nullable();
             $table->float('price')->nullable();

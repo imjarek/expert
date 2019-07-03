@@ -12,6 +12,8 @@ class CoursesTypesSeeder extends Seeder
     public function run()
     {
         $types = array(
+            ['seminar', 'Семинар'],
+            ['training', 'Тренинг'],
             ['video', 'Видео'],
             ['ppt', 'Презентация'],
             ['pdf', 'PDF']

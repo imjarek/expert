@@ -37,11 +37,14 @@ class PanelCoursesController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['title' => 'required|string', 'type_id' => 'required|integer', 'announcement' => 'required']);
+        $request->validate([
+            'title' => 'required|string',
+            'type_id' => 'required|integer',
+            'announcement' => 'required']);
 
-        Course::create($request->all());
+        $course = Course::create($request->all());
 
-        return view('panel.forms.course_edit');
+        return view('panel.forms.course_edit', ['course' => $course]);
     }
 
     /**
@@ -65,7 +68,15 @@ class PanelCoursesController extends Controller
     public function edit(Request $request, $id)
     {
         $course = Course::find($id);
-        return view('panel.forms.course_edit', ['course' => $course, 'courses_types' => CoursesType::all()]);
+        $allTypes = CoursesType::all();
+
+        $types = $allTypes->map(function ($type) use ($course) {
+            if ($course->types->firstWhere('id', '=', $type->id)) {
+                $type->selected = true;
+            }
+            return $type;
+        });
+        return view('panel.forms.course_edit', ['course' => $course, 'types' => $allTypes, 'options' => $types]);
     }
 
     /**
@@ -77,15 +88,41 @@ class PanelCoursesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), ['title' => 'required']);
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'preview' => 'sometimes|file',
+            'picture' => 'sometimes|file',
+            'type_id' => 'required|integer',
+            'type_ids' => 'sometimes|array'
+        ]);
         if ($validator->fails()) {
             return redirect('/panel/courses/' . $id . '/edit')
                 ->withInput()
                 ->withErrors($validator);
         }
-
+        $timestamp = (new \DateTime())->format('Y-m-d H:i:s');
+        if ($request->file('preview')) {
+            $previewFileName = $timestamp . '_' . $request->file('preview')->getClientOriginalName();
+            $request->file('preview')->storeAs('pics', $previewFileName);
+        }
+        if ($request->file('picture')) {
+            $pictureFileName = $timestamp . '_' . $request->file('picture')->getClientOriginalName();
+            $request->file('picture')->storeAs('pics', $pictureFileName);
+        }
         $course = Course::find($id);
-        $course->update($request->all());
+        $typeIds = $request->get('type_ids');
+        $data = array_map(function($input) {
+            return !is_array($input) ? $input : false;
+        }, $request->all());
+        $data = array_merge($data, [
+            'preview' => $previewFileName ?? $course->preview,
+            'picture' => $pictureFileName ?? $course->picture
+        ]);
+        $course->update($data);
+        $course->types()->detach();
+        if ($typeIds) {
+            $course->types()->attach(array_values($typeIds));
+        }
         return view('panel.course', ['course' => $course]);
     }
 
@@ -97,6 +134,6 @@ class PanelCoursesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return  Course::findOrFail($id)->delete();
     }
 }

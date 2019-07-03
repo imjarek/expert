@@ -11,6 +11,6 @@ class CoursesSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Course::class, 7)->create();
+
     }
 }

@@ -15,7 +15,7 @@ Route::get('/', function(){
     return redirect('main');
 });
 Route::get('/main', function () {
-    return view('main');
+    return view('main', ['courses' => \App\Course::all()]);
 });
 
 Route::get('/about', function () {
@@ -48,7 +48,3 @@ Route::post('panel/login', array('uses' => 'Auth\LoginController@doLogin'));
 Route::resource('courses', 'CoursesController');
 
 Route::resource('order', 'OrderController');
-
-Route::post('/enroll', 'UsersController@enroll');
-
-
