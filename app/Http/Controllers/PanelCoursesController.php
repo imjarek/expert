@@ -44,7 +44,7 @@ class PanelCoursesController extends Controller
 
         $course = Course::create($request->all());
 
-        return view('panel.forms.course_edit', ['course' => $course]);
+        return view('panel.forms.course_edit', ['course' => $course, 'types' => CoursesType::all()]);
     }
 
     /**
@@ -116,7 +116,8 @@ class PanelCoursesController extends Controller
         }, $request->all());
         $data = array_merge($data, [
             'preview' => $previewFileName ?? $course->preview,
-            'picture' => $pictureFileName ?? $course->picture
+            'picture' => $pictureFileName ?? $course->picture,
+            'is_active' => $request->get('is_active') ?? null
         ]);
         $course->update($data);
         $course->types()->detach();
@@ -134,6 +135,7 @@ class PanelCoursesController extends Controller
      */
     public function destroy($id)
     {
-        return  Course::findOrFail($id)->delete();
+        $course = Course::findOrFail($id)->delete();
+        redirect('/panel/courses');
     }
 }

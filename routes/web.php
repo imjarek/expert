@@ -15,7 +15,7 @@ Route::get('/', function(){
     return redirect('main');
 });
 Route::get('/main', function () {
-    return view('main', ['courses' => \App\Course::all()]);
+    return view('main', ['courses' => \App\Course::isActive()->orderBy('order')->get()]);
 });
 
 Route::get('/about', function () {
@@ -31,6 +31,11 @@ Route::prefix('panel')->middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('panel.main');
     });
+
+    Route::get('/courses/delete/{course}', function (\App\Course $course) {
+        return view('panel.forms.course_delete', ['course' => $course]);
+    });
+
     Route::prefix('pages')->group(function (){
         Route::get('/', 'PageController@index');
         Route::get('create', 'PageController@create');

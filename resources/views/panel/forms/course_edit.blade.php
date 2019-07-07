@@ -33,10 +33,12 @@ course_edit.blade.
             <div class="form-group">
                 <label for="options">Опции</label>
                 <select name="type_ids[]" id="options" multiple>
-                    <option value="">--Выберите опции --</option>
-                    @foreach ($options as $option)
-                        <option value="{{ $option->id }}" {{ $option->selected ? 'selected' : '' }}>{{ $option->title }}</option>
-                    @endforeach
+                    <option value="">--Выберите опции --</option>"
+                    @if (isset($options))
+                        @foreach ($options as $option)
+                            <option value="{{ $option->id }}" {{ $option->selected ? 'selected' : '' }}>{{ $option->title }}</option>
+                        @endforeach
+                    @endif
                 </select>
             </div>
             <div class="form-group">
@@ -68,6 +70,12 @@ course_edit.blade.
             <div class="form-group">
                 <label for="duration">Порядок</label>
                 <input type="input" class="form-control" name="order" id="order" placeholder="1" value="{{ old('order') ?? $course->order }}">
+            </div>
+            <div class="form-check form-check-inline">
+                <label class="form-check-label" for="is_active">Включен</label>
+                <input type="checkbox" class="form-check-input form-control-lg"
+                       name="is_active" id="is_active" value="1" {{ $course->is_active ? 'checked' : '' }}
+                >
             </div>
             @method('PUT')
             <!-- Add Task Button -->

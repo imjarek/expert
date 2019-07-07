@@ -14,7 +14,7 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        return view('courses', ['courses' => Course::orderBy('order')->all()]);
+        return view('courses', ['courses' => Course::isActive()->orderBy('order')->get()]);
     }
 
     /**
