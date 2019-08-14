@@ -53,3 +53,8 @@ Route::post('panel/login', array('uses' => 'Auth\LoginController@doLogin'));
 Route::resource('courses', 'CoursesController');
 
 Route::resource('order', 'OrderController');
+
+Route::prefix('cart')->group(function (){
+    Route::get('/', 'CartController@show');
+    Route::post('add', 'CartController@add');
+});
