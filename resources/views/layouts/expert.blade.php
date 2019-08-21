@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href="/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="/favicon.jpeg">
 
     <title>Центр дополнительного образования "Эксперт" - @yield('title')</title>
@@ -35,7 +36,7 @@
                 </a>
                 <a class="btn btn-lg btn-outline-secondary" href="/main/#enroll">Записаться на курс</a>
                 <div class="px-2 ">
-                    <a class="btn btn-lg btn-info" id="show-cart-btn" href="/cart">Оформить</a>
+                    <a class="fa fa-shopping-cart" id="show-cart-btn" href="/cart" style="color: #9fcdff; font-size: 32px;"></a>
                 </div>
             </div>
         </div>

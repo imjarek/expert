@@ -2,10 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
+use App\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+
 
 class OrderController extends Controller
 {
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(function ($model) {
+            $model->uuid = (string) Uuid::generate(4);
+        });
+    }
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +46,43 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'course_ids' => 'required|array',
+            'username' => 'required|string|max:100',
+            'email' => 'required|email',
+            'phone' => 'required|string|max:12|min:9'
+        ]);
+
+        $request->session()->put('username', $request->get('username'));
+        $request->session()->put('email', $request->get('email'));
+
+        $user = User::where('email', $request->get('email'))->first();
+
+        if (!$user) {
+            $user = new User();
+            $user->name = $request->username;
+            $user->email = $request->email;
+            $user->phone = $request->phone;
+            $user->password = crypt(time(), rand());
+            $user->save();
+        }
+
+        if($user->order) {
+            $order = $user->order;
+            $order->courses->detach();
+        } else {
+            $order = new Order();
+            $order->user()->associate($user);
+        }
+
+        $order->comment = 'Заказ через сайт: ' . Carbon::now()->format('Y-m-d H:i:s');
+
+        $order->save();
+        $order->courses()->attach($request->get('course_ids'));
+
+        $request->session()->forget('items');
+
+        return new JsonResponse(['order_uuid' => $order->uuid ]);
     }
 
     /**
@@ -48,15 +96,15 @@ class OrderController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        return view('order.create');
+    }
+
+    public function success($uuid)
+    {
+        return view('order.success', [
+            'order' => Order::getByUuid($uuid)]);
     }
 
     /**

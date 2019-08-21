@@ -27,8 +27,11 @@ class CartController extends Controller
 
     public function show()
     {
+        $username = session('username');
+        $email = session('email');
+
         $ids = $this->all();
         $items = !empty($ids) ? Course::whereIn('id', $ids)->get() : collect();
-        return view('cart', ['items' => $items]);
+        return view('cart', ['items' => $items, 'email' => $email, 'username' => $username]);
     }
 }

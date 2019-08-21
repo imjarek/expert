@@ -52,9 +52,14 @@ Route::post('panel/login', array('uses' => 'Auth\LoginController@doLogin'));
 
 Route::resource('courses', 'CoursesController');
 
-Route::resource('order', 'OrderController');
+Route::prefix('order')->group(function (){
+    Route::get('create', 'OrderController@edit');
+    Route::get('success/{guid}', 'OrderController@success');
+    Route::post('create', 'OrderController@store');
+});
 
 Route::prefix('cart')->group(function (){
     Route::get('/', 'CartController@show');
     Route::post('add', 'CartController@add');
 });
+

@@ -131,6 +131,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
 }
 
+.shopping-cart {
+    margin: 10px;
+    padding: 10px;
+}
 .fitness {
     margin:0 auto;
     transition: background-image 2s ease-in-out;
