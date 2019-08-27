@@ -30,7 +30,22 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    public function redirectTo()
+    {
+
+        $role = Auth::user()->role->name;
+        switch ($role) {
+            case 'admin':
+                return '/panel';
+                break;
+            case 'student':
+                return '/classroom';
+                break;
+            default:
+                return '/classroom';
+                break;
+        }
+    }
 
     /**
      * Create a new controller instance.
@@ -50,7 +65,7 @@ class LoginController extends Controller
     public function doLogin()
     {
         $rules = array(
-            'email'    => 'required|email',
+            'email' => 'required|email',
             'password' => 'required|min:4'
         );
 
@@ -61,18 +76,14 @@ class LoginController extends Controller
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
-
             $userdata = array(
                 'email' => Input::get('email'),
                 'password' => Input::get('password')
             );
 
             if (Auth::attempt($userdata)) {
-
-                return Redirect::to('panel');
-
+                return Redirect::to($this->redirectPath());
             } else {
-
                 // validation not successful, send back to form
                 return Redirect::to('panel/login')->withErrors(['Данные не верны']);
 
@@ -85,5 +96,4 @@ class LoginController extends Controller
         Auth::logout();
         return Redirect::to('panel/login');
     }
-
 }

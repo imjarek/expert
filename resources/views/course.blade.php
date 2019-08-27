@@ -31,6 +31,6 @@
         @endif
     </div>
     <div class="row">
-        <div class="float-right btn btn-sm btn-info to-shopping-cart-btn" data-id="{{ $course->id }}">В корзину</div>
+        <div class="float-right btn btn-sm {{ $course->inCart ? 'btn-success' : 'btn-info' }} to-shopping-cart-btn" data-id="{{ $course->id }}">{{ $course->inCart ? 'В корзине' : 'В корзину'}}</div>
     </div>
 @endsection

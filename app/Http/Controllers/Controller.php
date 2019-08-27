@@ -11,6 +11,10 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function mainPage()
+    {
+        return view('main', (new CoursesController())->index());
+    }
     public function imageUpload()
     {
         return view('imageUpload');

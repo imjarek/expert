@@ -14,9 +14,7 @@
 Route::get('/', function(){
     return redirect('main');
 });
-Route::get('/main', function () {
-    return view('main', ['courses' => \App\Course::isActive()->orderBy('order')->get()]);
-});
+Route::get('/main', 'Controller@mainPage');
 
 Route::get('/about', function () {
 
@@ -61,5 +59,12 @@ Route::prefix('order')->group(function (){
 Route::prefix('cart')->group(function (){
     Route::get('/', 'CartController@show');
     Route::post('add', 'CartController@add');
+});
+
+Route::prefix('classroom')
+    ->middleware('auth')
+    ->group(function (){
+    Route::get('{orderId}', 'ClassRoomController@showClassrooms');
+    Route::get('{orderId}/{courseId}', 'ClassRoomController@showClassroom');
 });
 

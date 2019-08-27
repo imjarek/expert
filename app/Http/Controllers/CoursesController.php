@@ -14,7 +14,16 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        return view('courses', ['courses' => Course::isActive()->orderBy('order')->get()]);
+        $items = session('items');
+        $courses = Course::isActive()->orderBy('order')->get();
+        if (is_array($items)) {
+            $courses = $courses->map(function ($course) use ($items) {
+                $course->inCart = in_array($course->id, array_values($items));
+                return $course;
+            });
+        }
+
+        return ['courses' => $courses];
     }
 
     /**
@@ -46,7 +55,13 @@ class CoursesController extends Controller
      */
     public function show($id)
     {
-        return view('course', ['course' => Course::find($id)]);
+        $course = Course::find($id);
+        $items = session('items');
+
+        if (is_array($items) && in_array($course->id, array_values($items))) {
+            $course->inCart = true;
+        }
+        return view('course', ['course' => $course]);
     }
 
     /**

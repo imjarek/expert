@@ -19,7 +19,7 @@
                             {{ $course->description }}
                         </p>
                         <a href="courses/{{ $course->id }}">Узнать больше</a>
-                        <div class="btn btn-sm btn-info to-shopping-cart-btn" data-id="{{ $course->id }}">В корзину</div>
+                        <div class="btn btn-sm {{ $course->inCart ? 'btn-success' : 'btn-info'}} to-shopping-cart-btn" data-id="{{ $course->id }}">{{ $course->inCart ? 'В корзине' : 'В корзину'}}</div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-md-block" data-src="" alt="" style="width: 200px; height: 250px;" src="storage/pics/{{ $course->preview }}" data-holder-rendered="true">
                 </div>

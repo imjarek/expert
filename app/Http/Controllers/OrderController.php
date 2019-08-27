@@ -65,11 +65,12 @@ class OrderController extends Controller
             $user->phone = $request->phone;
             $user->password = crypt(time(), rand());
             $user->save();
+            $user->role()->save(Role::where('name', 'student')->first());
         }
 
         if($user->order) {
             $order = $user->order;
-            $order->courses->detach();
+            $order->courses()->detach();
         } else {
             $order = new Order();
             $order->user()->associate($user);

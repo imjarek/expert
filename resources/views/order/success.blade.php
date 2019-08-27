@@ -30,6 +30,9 @@
 
                 @endif
             @endforeach
+            <br>
+            <h3>Мы свяжемся с Вами в течение суток</h3>
+            <h4>По любым вопросам звоните <strong>{{ env('SMS_TO') }}</strong></h4>
         @endif
     </div>
 @endsection

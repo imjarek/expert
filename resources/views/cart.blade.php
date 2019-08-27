@@ -36,13 +36,13 @@
         <form id="make-order-form">
             <div class="form-group col-md-6">
                 <label for="exampleInputEmail1">Ваш E-mail</label>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ваша почта" value="{{ $email ?? 'Ваша почта' }}">
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Укажите почту" value="{{ $email ?? '' }}">
                 <small id="emailHelp" class="form-text text-muted">Мы гарантируем использование почты только для уведомлений о Вашем заказе</small>
                 <label for="phone">Номер телефона</label>
-                <input type="text" name="phone" class="form-control" id="exampleInputEmail1" placeholder="Телефон" value="{{ $phone ?? 'Ваш номер телефона' }}">
+                <input type="text" name="phone" class="form-control" id="exampleInputEmail1" placeholder="Ваш номер телефона" value="{{ $phone ?? ''}}">
                 <small id="phone" class="form-text text-muted">Для связи с Вами</small>
                 <label for="name">Как Вас зовут?</label>
-                <input type="text" name="first_name" class="form-control" id="name" placeholder="Ваше имя" value="{{ $username ?? 'Ваша почта' }}">
+                <input type="text" name="first_name" class="form-control" id="name" placeholder="Как Вас зовут?" value="{{ $username ?? '' }}">
             </div>
         <div class="btn btn-lg btn-warning" id="make-order-btn">Оформить</div>
 
