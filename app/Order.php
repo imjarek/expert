@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Event;
 use Webpatser\Uuid\Uuid;
 
 class Order extends Model
@@ -12,6 +13,10 @@ class Order extends Model
         parent::boot();
         self::creating(function ($model) {
             $model->uuid = (string) Uuid::generate(4);
+        });
+        self::updated(function ($order) {
+
+            Event::dispatch('order.created', $order);
         });
     }
 

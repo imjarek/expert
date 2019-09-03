@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\User;
+use App\Role;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 
 class OrderController extends Controller
@@ -63,9 +65,10 @@ class OrderController extends Controller
             $user->name = $request->username;
             $user->email = $request->email;
             $user->phone = $request->phone;
-            $user->password = crypt(time(), rand());
+            $user->temp_pass = crypt(time(), rand());
+            $user->password = Hash::make($user->temp_pass);
+            $user->role()->associate(Role::where('name', 'student')->first());
             $user->save();
-            $user->role()->save(Role::where('name', 'student')->first());
         }
 
         if($user->order) {

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Event;
 
 class User extends Authenticatable
 {
@@ -28,6 +29,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public $temp_pass;
     /**
      * The attributes that should be cast to native types.
      *
@@ -37,6 +39,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($user) {
+
+            Event::dispatch('user.created', $user);
+        });
+    }
     public function role()
     {
         return $this->belongsTo(Role::class);

@@ -68,3 +68,5 @@ Route::prefix('classroom')
     Route::get('{orderId}/{courseId}', 'ClassRoomController@showClassroom');
 });
 
+
+Route::get('test', 'TestController@test');

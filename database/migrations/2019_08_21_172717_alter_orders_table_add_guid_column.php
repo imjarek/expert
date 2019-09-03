@@ -14,7 +14,7 @@ class AlterOrdersTableAddGuidColumn extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table){
-            $table->string('uuid', 36)->unique();
+            $table->string('uuid', 36);
         });
     }
 
