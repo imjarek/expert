@@ -93,7 +93,7 @@ class UsersController extends Controller
         $request->validate([
             'name' => 'required',
             'phone' => 'required',
-            'course' => 'required'
+//            'course' => 'required'
         ]);
 
         $data = $request->all();

@@ -13,7 +13,10 @@ class Controller extends BaseController
 
     public function mainPage()
     {
-        return view('main', (new CoursesController())->index());
+        $data = (new CoursesController())->index();
+        $data['isMain'] = true;
+
+        return view('main', [$data]);
     }
     public function imageUpload()
     {

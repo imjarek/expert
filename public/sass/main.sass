@@ -1,0 +1,1538 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	// color: #666
+
+::selection
+	// background-color: $accent
+	// color: #fff
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+*
+	outline: 0 !important
+a
+	transition: .3s ease-in-out
+	&:hover
+		transition: .3s ease-in-out
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+
+
+.title
+	color: $title-color
+	font-family: $title-font
+	font-style: italic
+	font-size: 47px
+	font-weight: 800
+	line-height: 30px
+	letter-spacing: 0.98px
+	margin-bottom: 50px
+.head
+	color: $title-color
+	font-family: $title-font
+	font-size: 49px
+	font-weight: 900
+	line-height: 30px
+	font-style: italic
+	letter-spacing: 0.98px
+	margin-bottom: 60px
+.btn
+	border-radius: 10px
+	background-color: $accent-pink
+	display: inline-block
+	width: 100%
+	max-width: 415px
+	color: #ffffff
+	font-size: 20px
+	font-weight: 700
+	line-height: 20px
+	padding: 25px
+	text-transform: uppercase
+	letter-spacing: 0.4px
+	text-align: center
+	box-shadow: 10px 10px 0px 0px #a372aa
+	transition: .4s ease-in-out
+	&:hover
+		color: #ffffff
+		box-shadow: 8px 8px 0px 0px #5464eb
+		background-color: $accent-blue
+		text-decoration: none
+	&__signUp
+		color: #ffffff
+		font-size: 17px
+		font-weight: 700
+		line-height: 20px
+		letter-spacing: 0.34px
+		padding: 10px 40px
+		border-radius: 10px
+		border: 1px solid #ffffff
+		background-color: transition
+		transition: .4s
+		&:hover
+			background-color: #d49ccf
+			color: #fff
+			text-decoration: none
+	&[type="submit"]
+		cursor: pointer
+		border: none		 
+.text-content
+	b
+		color: #141415
+		font-size: 20px
+		font-weight: 700
+		line-height: 30px
+		letter-spacing: 0.4px
+	p
+		color: #000000
+		font-size: 16px
+		font-weight: 400
+		line-height: 25px
+		letter-spacing: 0.32px
+	ol
+		padding-left: 20px
+	ul
+		list-style: none
+		margin: 0
+		padding: 0
+		padding-left: 25px
+		li
+			position: relative
+			&:before
+				position: absolute
+				top: -5px
+				left: -25px
+				color: $title-color
+				font-size: 30px
+				line-height: 1
+				content: "•"
+				font-weight: 700
+				padding-right: 10px
+
+.page
+	padding: 50px 0 200px
+
+//Popup
+.popup-modal
+	position: absolute
+	border-radius: 10px
+	width: 100%
+	max-width: 760px
+	left: 50%
+	top: 50px
+	transform: translate(-50%, -50%)
+	border: none
+	background: #fff
+	padding: 40px
+	padding-top: 30px
+	font-size: 18px
+	.mfp-close
+		color: #d5d4d4
+		font-size: 30px
+		display: none
+.close-popup
+	right: 15px
+	top: 15px
+	position: absolute
+.close:before, .close:after
+	position: absolute
+	left: 10px
+	content: ' '
+	height: 20px
+	width: 2px
+	background-color: #3b3939
+.close
+	cursor: pointer
+	width: 20px
+	height: 20px
+	opacity: 0.3
+	transition: all .5s
+	&:before
+		transform: rotate(45deg)
+	&:after	
+		transform: rotate(-45deg)
+.form-popup
+	max-width: 450px
+
+.form-control
+	input
+		width: 100%
+		padding: 15px 12px
+		background-color: #fff
+		background-image: none
+		border: 1px solid #ccc
+		border-radius: 4px
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075)
+		transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+		margin-bottom: 20px
+
+.form-signin-heading
+	margin-bottom: 30px
+// Breadcrumb
+.breadcrumb
+	margin-bottom: 40px
+	&__wrapper
+		display: flex
+		flex-wrap: wrap
+		list-style: none
+		padding: 0
+	&__item
+		color: #3f3f3f
+		font-size: 17px
+		font-weight: 700
+		line-height: 30px
+		letter-spacing: 0.34px
+		&+.breadcrumb__item
+			padding-left: 5px
+			&:before
+				display: inline-block
+				padding-right: 5px
+				color: #9c9c9e
+				content: "-"
+	a
+		color: #9c9c9e
+		background-color: transparent
+		transition: .3s
+		&:hover
+			color: $accent-pink
+
+
+//Burger
+.mob-burger
+	display: none
+	margin-left: auto
+	width: 30px
+	height: 21px
+	position: relative
+	-webkit-transform: rotate(0deg)
+	-ms-transform: rotate(0deg)
+	transform: rotate(0deg)
+	-webkit-transition: .5s ease-in-out
+	-o-transition: .5s ease-in-out
+	transition: .5s ease-in-out
+	cursor: pointer
+	z-index: 1000
+	span 
+		display: block
+		position: absolute
+		height: 3px
+		width: 100%
+		background: #fff
+		opacity: 1
+		right: 0
+		-webkit-transition: .25s ease-in-out
+		-o-transition: .25s ease-in-out
+		transition: .25s ease-in-out
+		&:nth-child(1)
+			top: 0
+		&:nth-child(2)
+			top: 9px
+		&:nth-child(3)
+			top: 18px
+.mob-menu__bg
+	position: fixed
+	display: none
+	background: rgba(0,0,0,0.6)
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+	z-index: 800				
+// Header
+.h-fixed
+	position: fixed!important
+	background: #fff
+	z-index: 1000
+	left: 0
+	top: 0
+	right: 0
+	box-shadow: 0 3px 6px rgba(0,0,0,0.05)
+.header
+	padding: 15px
+	background-image: linear-gradient(82deg, #7a2b7a 0%, #d49ccf 51%, #2b7de0 100%)
+	&__wrapper
+		margin: auto
+		width: 100%
+		max-width: 1740px
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&__menu
+.logo
+	display: flex
+	align-items: center
+	&:hover
+		text-decoration: none		
+	&__text
+		max-width: 245px
+		color: #ffffff
+		margin-left: 30px
+		h2
+			font-family: $title-font
+			font-size: 62px
+			font-weight: 800
+			font-style: italic
+			line-height: 46px
+			letter-spacing: 1.24px
+			margin-bottom: 10px
+		span
+			font-size: 18px
+			font-weight: 700
+			line-height: 23px
+.menu
+	padding: 0
+	margin: 0
+	list-style: none
+	display: flex
+	li
+		margin-right: 30px
+		&:last-child
+			margin-right: 0
+	a
+		color: #ffffff
+		font-size: 18px
+		font-weight: 700
+		line-height: 20px
+		letter-spacing: 0.36px
+		text-transform: uppercase
+		transition: .4s
+		position: relative
+		&:after
+			transition: all .5s
+			content: ''
+			opacity: 0
+			display: block
+			position: absolute
+			height: 2px
+			background-color: #fff
+			bottom: -10px
+			width: 100%
+		&:hover
+			text-decoration: none
+			&:after
+				opacity: 1
+	&__btn
+		display: none
+//Main
+.full-slider
+	&__container
+		margin: auto
+		max-width: 1565px
+		width: 100%
+		padding: 0 80px
+	&__item
+		position: relative
+		.slider-bg		
+			position: relative
+			background-position: center center
+			background-size: cover
+			min-height: 800px
+			padding: 0
+			display: flex
+			align-items: center
+	&__title
+		color: $title-color
+		font-family: $title-font
+		font-weight: 800
+		font-style: italic
+		font-size: 79px
+		letter-spacing: 1.58px
+		line-height: 69px
+		letter-spacing: 1.58px
+		line-height: 77px
+		position: relative
+		display: inline-block
+		&:after
+			content: ''
+			width: 100%
+			display: inline-block
+			bottom: 20px
+			position: relative
+			height: 1px
+			background-color: #cdcdcd
+	&__sub-title
+		color: #484849
+		font-family: "MullerNarrow", sans-serif
+		font-weight: 800
+		font-style: italic
+		font-size: 34px
+		line-height: 41px
+		letter-spacing: 0.68px
+		margin-bottom: 40px
+		display: block
+	.slick-next, .slick-prev
+		position: absolute
+		display: block
+		height: 20px
+		width: 20px
+		line-height: 0
+		font-size: 0
+		cursor: pointer
+		top: 50%
+		transform: translate(0,-50%)
+		border: none
+		background: 0
+		padding: 0
+		outline: 0
+		z-index: 10
+		&:before
+			content: ''
+			margin: auto
+			position: absolute
+			top: 50%
+			left: 50%
+			border: solid #bebfc1
+			border-width: 0 3px 3px 0
+			display: inline-block
+			width: 20px
+			height: 20px
+			top: 14px
+			left: 16.5px
+	.slick-prev
+		left: 5%
+		&:before
+			transform: translate(-50%, -50%) rotate(135deg)
+	.slick-next
+		right: 5%
+		&:before
+			left: 0
+			transform: translate(-50%, -50%) rotate(-45deg)
+
+//Programs
+.programs
+	padding: 60px 0
+	padding-bottom: 280px
+	position: relative
+	&:before
+		z-index: -1
+		position: absolute
+		height: 100%
+		width: 100%
+		content: ''
+		left: 0
+		top: 0
+		background-image: url(../img/pattern.jpg)
+		opacity: 0.2
+	&__tab
+		font-size: 0
+		margin-bottom: 60px
+	&__btn		 
+		background-color: $accent-blue
+		display: inline-block
+		width: 100%
+		max-width: 415px
+		color: #ffffff
+		font-size: 20px
+		font-weight: 700
+		line-height: 20px
+		padding: 25px
+		text-transform: uppercase
+		letter-spacing: 0.4px
+		text-align: center
+		transition: 0.3
+		&:hover
+			color: #ffffff
+			text-decoration: none
+		&:first-child
+			border-radius: 10px 0 0 10px
+			&.active
+				background-color: $accent-pink
+				box-shadow: -5px 7px 0px 5px #a372aa
+		&:last-child
+			border-radius: 0 10px 10px 0
+			&.active
+				background-color: $accent-pink
+				box-shadow: 5px 7px 0px 5px #a372aa
+	&__wrapper
+		display: none
+		&.active
+			display: block
+	&__item
+		max-width: 420px	
+		height: 640px
+		position: relative
+		display: block
+		margin: auto
+		margin-bottom: 60px
+		border-radius: 10px
+		overflow: hidden
+		background-position: center center
+		background-size: cover
+		&:hover
+			box-shadow: 0 6px 27px 2px rgba(0, 0, 0, 0.21)
+	&__top
+		max-width: 190px
+		position: absolute
+		top: 0
+		right: 0
+		text-align: center
+	&__price
+		color: #ffffff
+		font-size: 25px
+		font-weight: 700
+		line-height: 30px
+		letter-spacing: 0.5px
+		position: relative
+		z-index: 10
+		padding: 12px 15px
+		margin-bottom: 5px
+		&:before
+			content: ''
+			display: inline-block
+			position: absolute
+			width: 100%
+			top: 0
+			border-radius: 10px
+			z-index: -1
+			right: 0
+			height: 54px
+			background: $accent-blue
+			opacity: 0.8
+	&__date
+		color: #141415
+		font-size: 17px
+		font-weight: 700
+		line-height: 30px
+		letter-spacing: 0.34px
+	&__description
+		position: absolute
+		bottom: 0
+		min-height: 160px
+		width: 100%
+		z-index: 10
+		padding: 15px 5px
+		&:before
+			content: ''
+			display: inline-block
+			position: absolute
+			width: 100%
+			bottom: 0
+			z-index: -1
+			left: 0
+			height: 155px
+			background-position: center
+			background-position: top center
+			background-size: cover
+			background-image: url(../img/elips.png)
+			opacity: 0.8
+	&__name
+		color: #fff
+		font-size: 17px
+		font-weight: 700
+		line-height: 24px
+		letter-spacing: 0.34px
+		min-height: 49px
+		span
+			font-size: 13px
+			letter-spacing: 0.26px
+		p
+
+	&__type
+		color: #fff
+		font-size: 25px
+		font-weight: 700
+		line-height: 30px
+		text-transform: uppercase
+
+
+// Psychology
+.psychology
+	background-image: linear-gradient(82deg, #7a2b7a 0%, #d49ccf 51%, #2b7de0 100%)
+	position: relative
+	&__wrapper
+		position: relative
+		top: -221px
+		margin: auto
+		border: 1px solid #b0aeae33
+		border-radius: 10px
+		background-color: #fff
+		overflow: hidden
+		padding-right: 12.5px
+		padding-left: 12.5px
+		table
+			width: 100%
+	&__head
+		color: #ffffff
+		font-size: 20px
+		font-weight: 700
+		line-height: 30px
+		letter-spacing: 0.34px
+		padding: 10px 50px
+		background-color: $accent-pink
+		position: absolute
+		top: 0
+		left: 0
+	&__item
+		border-bottom: 1px solid #b0aeae33
+		&:first-child .psychology__title
+			padding-top: 110px
+		&:first-child .psychology__type
+			top: 70px	
+	&__type
+		color: #000
+		font-size: 18px
+		font-weight: 300
+		line-height: 30px
+		letter-spacing: 0.36px
+		position: absolute
+		top: 40px
+	&__content
+
+	&__title
+		position: relative
+		color: $title-color
+		font-size: 24px
+		font-weight: 700
+		line-height: 30px
+		letter-spacing: 0.48px
+		max-width: 600px
+		padding: 80px 50px
+		a
+			color: $title-color
+			&:hover
+				text-decoration: none	
+	&__time
+		color: #000000
+		font-size: 18px
+		font-weight: 700
+		letter-spacing: 0.36px
+		line-height: 30px
+		letter-spacing: 0.36px
+		line-height: 25px
+		span
+			display: block
+			color: #141415
+			font-weight: 300
+			line-height: 30px
+			letter-spacing: 0.36px
+	&__price
+		color: #141415
+		font-size: 25px
+		font-weight: 700
+		line-height: 30px
+		letter-spacing: 0.5px
+		padding: 0 50px
+	&__link
+		padding-right: 50px
+		a
+			display: inline-block
+			width: 80px
+			height: 60px
+			border-radius: 10px
+			border: 1px solid #cdcdcd
+			background-color: #ffffff
+			position: relative
+			&:hover
+				background-color: #7d88e4
+				&:after
+					border: solid #fff
+					border-width: 0 2px 2px 0
+			&:after
+				content: ''
+				margin: auto
+				position: absolute
+				top: 50%
+				left: 48%
+				border: solid #333
+				border-width: 0 2px 2px 0
+				display: inline-block
+				width: 15px
+				height: 15px
+				transform: translate(-50%, -50%) rotate(-45deg)
+
+//Contact Form
+.contact
+	background-image: url(../img/contact-bg.jpg)
+	background-position: center center
+	background-size: cover
+	padding: 70px 0 90px
+	&__wrapper
+		display: flex
+		max-width: 1300px
+		margin: auto
+	&__form
+		margin-left: auto
+		max-width: 550px
+		width: 100%
+		color: #000000
+		font-size: 18px
+		font-weight: 400
+		line-height: 30px
+		letter-spacing: 0.36px
+		.formItem
+			display: flex
+			justify-content: space-between
+			input
+				max-width: 240px
+				width: 100%
+				position: relative
+				resize: none
+				outline: none
+				box-sizing: border-box
+				background-color: transparent
+				border: transparent
+				border-bottom: 1px solid #c1c1c1
+				padding: 10px 0px
+				margin-bottom: 20px
+				transition: 1s
+				outline: 0 none
+				&::placeholder
+					color: #000000
+					font-size: 18px
+					font-weight: 400
+					line-height: 30px
+					letter-spacing: 0.36px
+		.formSelect
+			position: relative
+			margin-bottom: 60px
+			select
+				outline: 0 none
+				width: 100%
+				padding: 10px 0px
+				border: none
+				background-color: transparent
+				border: transparent
+				border-bottom: 1px solid #c1c1c1
+				-webkit-appearance: none
+				-moz-appearance: none
+				appearance: none
+			&:after
+				content: ''
+				display: inline-block
+				position: absolute
+				width: 10px
+				height: 10px
+				border-right: 1px solid #555
+				border-bottom: 1px solid #555
+				right: 10px
+				bottom: 20px
+				transform: rotate(45deg)
+		.formBtn
+			padding: 16px
+			border: none
+			cursor: pointer
+			max-width: 550px
+
+// Advantages
+.advantages
+	border-bottom: 1px solid #e6e6e6
+	padding: 80px 0
+	margin-bottom: 80px
+	&__container
+		max-width: 1565px
+		width: 100%
+		padding-right: 30px
+		padding-left: 30px
+		margin-right: auto
+		margin-left: auto
+	&__wrapper
+		position: relative
+		margin-top: 60px
+		background-repeat: no-repeat
+		background-position: bottom left
+		background-image: url(../img/advantages-bg.jpg)
+		padding-bottom: 120px
+	&__item
+		display: flex
+		margin-bottom: 60px
+	&__number
+		background-image: linear-gradient(-45deg, #d49ccf 0%, #2b7de0 100%)
+		-webkit-background-clip: text
+		-webkit-text-fill-color: transparent
+		opacity: 0.6
+		min-width: 145px
+		color: #2b7de0
+		font-size: 120px
+		font-weight: 700
+		line-height: 90px
+		margin-right: 30px
+	&__description
+		max-width: 265px
+	&__title
+		color: #8f279e
+		font-size: 22px
+		font-weight: 700
+		line-height: 29px
+		letter-spacing: 0.44px
+		margin-bottom: 15px
+	&__text
+		color: #000000
+		font-size: 18px
+		font-weight: 400
+		line-height: 29px
+
+// Certificate
+.certificate
+	margin-bottom: 110px
+	&__container
+		max-width: 1565px
+		width: 100%
+		padding-right: 30px
+		padding-left: 30px
+		margin-right: auto
+		margin-left: auto
+	&__wrapper
+		position: relative
+		padding-top: 45px
+		&:after
+			content: ''
+			width: 25%
+			height: 100%
+			background-image: linear-gradient(-45deg, #d49ccf 0%, #2b7de0 100%)
+			position: absolute
+			right: 0
+			top: 0
+			z-index: -1
+	&__block
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+	&__item
+		padding: 45px
+		max-width: 400px
+		width: 100%
+		box-shadow: 7px 7px 21px rgba(132, 132, 132, 0.22)
+		border-radius: 10px
+		background-color: #ffffff
+		margin-bottom: 45px
+		cursor: pointer
+		transition: .3s ease-in-out
+		&:hover
+			box-shadow: 7px 7px 21px #a6aab7
+		&.active
+			color: #fff
+			background-image: linear-gradient(-45deg, #d49ccf 0%, #2b7de0 100%)
+			box-shadow: 7px 7px 21px #a6aab7
+			.certificate__title, .certificate__text
+				color: #fff	
+	&__title
+		color: #a372aa
+		font-family: $title-font
+		font-size: 36px
+		font-weight: 600
+		font-style: italic
+		line-height: 30px
+		letter-spacing: 0.72px
+		margin-bottom: 15px
+	&__text
+	&__img
+		width: 630px
+		height: auto
+		a
+			display: none
+			margin: auto
+			&.active
+				display: block
+		img
+			margin: auto		
+
+// Training
+.training
+	&__wrapper
+		border-top: 1px solid #e6e6e6
+		border-bottom: 1px solid #e6e6e6
+		position: relative
+	&__img
+		background-size: cover
+		background-position: center
+		background-image: url(../img/training-bg.jpg)
+		background-repeat: no-repeat
+	&__list
+		padding: 70px 0px 40px 140px
+		list-style: none
+		margin: 0
+		max-width: 830px
+	&__item
+		position: relative
+		margin-bottom: 15px
+		&:last-child:after
+			display: none
+		&:after
+			position: absolute
+			content: ''
+			background-color: #c1c1c1
+			top: 8%
+			z-index: -1
+			left: -46px
+			width: 2px
+			height: 115%
+	&__dot
+		display: inline-block
+		position: absolute
+		width: 50px
+		height: 50px
+		left: -70px
+		border-radius: 50%
+		background-color: #ffffff
+		box-shadow: 0 0 9px 1px rgba(168, 170, 170, 0.4)
+		&:after
+			content: ''
+			display: inline-block
+			position: absolute
+			width: 42px
+			height: 42px
+			border-radius: 50%
+			background-color: #ffffff
+			left: 50%
+			top: 50%
+			transform: translate(-50%,-50%)
+			background-image: linear-gradient(-45deg, #d49ccf 0%, #2b7de0 100%)
+		&:before
+			content: ''
+			display: inline-block
+			position: absolute
+			margin: auto
+			top: 50%
+			left: 50%
+			border: solid #fff
+			border-width: 0 2px 2px 0
+			display: inline-block
+			width: 10px
+			height: 15px
+			transform: translate(-50%,-50%) rotate(45deg)
+			z-index: 10
+	&__title
+		color: #393a3f
+		font-size: 22px
+		font-weight: 700
+		line-height: 29px
+		letter-spacing: 0.44px
+		margin-bottom: 5px
+	&__text
+		color: #6e6f70
+		font-size: 16px
+		font-weight: 400
+		line-height: 29px
+		margin-bottom: 0
+.treiner-reviews
+	position: relative
+	overflow: hidden
+	&:before
+		z-index: -1
+		position: absolute
+		height: 100%
+		width: 100%
+		content: ''
+		left: 0
+		top: 0
+		background-image: url(../img/pattern.jpg)
+		opacity: 0.2
+// Treiner
+.treiner
+	margin: 80px 0
+	margin-bottom: 120px
+	&__container
+		max-width: 1565px
+		width: 100%
+		padding-right: 30px
+		padding-left: 30px
+		margin-right: auto
+		margin-left: auto
+	&__slider
+		display: flex
+		justify-content: space-between
+		position: relative
+.container__slick
+	&_1
+		max-width: 1070px
+		width: 100%
+		.slick-initialized .slick-slide
+			display: flex
+	&_2
+		width: 100%
+		max-width: 415px
+.slidArrow
+	width: 79px
+	height: 60px
+	border-radius: 10px
+	border: 1px solid #e6e6e6
+	background-color: #ffffff
+	position: absolute
+	bottom: 0
+	outline: none
+	cursor: pointer
+	&:hover
+		background-color: #7d88e4
+		&:after
+			border: solid #fff
+			border-width: 0 2px 2px 0
+	&:after
+		content: ''
+		margin: auto
+		position: absolute
+		top: 50%
+		left: 50%
+		border: solid #333
+		border-width: 0 2px 2px 0
+		display: inline-block
+		width: 15px
+		height: 15px
+	&-right
+		right: 0
+		&:after
+			transform: translate(-50%, -50%) rotate(-45deg)
+	&-left
+		&:after	
+			transform: translate(-50%, -50%) rotate( 135deg)
+.slider-1
+	&__item
+	&__img
+		width: 100%
+		max-width: 415px 
+	&__description
+		padding: 40px
+		max-width: 660px
+		border: 1px solid #e6e6e6
+		background-color: #ffffff
+.slider-2
+	.slick-list
+	.slick-track
+	&__item
+	&__img
+		width: 100%
+		max-width: 415px
+
+//Reviews
+.reviews
+	margin-bottom: 350px
+	&__container
+		max-width: 1565px
+		width: 100%
+		padding-right: 30px
+		padding-left: 30px
+		margin-right: auto
+		margin-left: auto
+	&__wrapper
+		position: relative
+		padding: 60px
+		border: 10px solid
+		background-color: #fff
+		border-image-source: linear-gradient(72deg, #d49ccf 0%, #2b7de0 100%)
+		border-image-slice: 1
+		.slick-initialized .slick-slide
+			display: flex
+	&__item
+		display: flex
+	&__img
+		width: 176px
+		height: 176px
+		border-radius: 50%
+		background-color: #d49ccf
+		position: relative
+		background-position: center center
+		background-size: cover
+		&:after
+			content: ''
+			position: absolute
+			top: 80px
+			left: 75px
+			display: inline-block
+			width: 180px
+			height: 141px
+			background-image: url(../img/comma.png)
+			background-position: center center
+			background-size: cover
+	&__description
+		margin-left: 180px
+		max-width: 928px
+		color: #6e6f70
+		font-size: 18px
+		font-weight: 400
+		letter-spacing: 0.36px
+		position: relative
+		min-height: 220px
+	&__text
+		margin-bottom: 30px
+	&__bottom
+		display: flex
+		justify-content: space-between		
+	&__instagram a
+		color: #232323
+		font-size: 18px
+		font-weight: 400
+		letter-spacing: 0.36px
+		text-transform: uppercase
+		position: relative
+		display: inline-block
+		padding-left: 30px
+		&:hover
+			text-decoration: none
+			color: $accent-pink
+		&:after
+			content: ''
+			position: absolute
+			top: 4px
+			left: 0
+			display: inline-block
+			width: 19px
+			height: 19px
+			background-image: url(../img/soc-instagram.png)
+			background-position: center center
+			background-size: cover	
+	&__control
+		.slidArrow
+			position: relative		
+
+//Question
+.question
+	background-image: linear-gradient(82deg, #7a2b7a 0%, #d49ccf 51%, #2b7de0 100%)
+	position: relative
+	padding: 25px
+	&__wrapper
+		position: relative
+		top: -221px
+		max-width: 1300px
+		margin: auto
+		border: 1px solid #b0aeae33
+		border-radius: 10px
+		background-color: #fff
+		overflow: hidden
+	&__head
+		color: #ffffff
+		font-size: 20px
+		font-weight: 700
+		line-height: 30px
+		letter-spacing: 0.34px
+		padding: 10px 50px
+		background-color: $accent-pink
+		position: absolute
+		top: 0
+		left: 0
+	&__list
+		list-style: none
+		padding: 0
+		margin: 0	
+	&__item
+		padding: 50px
+		padding-right: 150px
+		border-bottom: 1px solid #b0aeae33
+		position: relative
+		cursor: pointer
+		&:first-child
+			padding-top: 110px
+			.question__btn
+				top: 100px
+		&.open .question__btn
+			&:after
+				transform: translate(-50%, -50%) rotate( -135deg)	
+	&__title
+		color: #141415
+		font-size: 20px
+		font-weight: 700
+		line-height: 30px
+		letter-spacing: 0.4px
+		max-width: 1100px
+	&__text
+		color: #6e6f70
+		font-size: 18px
+		font-weight: 400
+		line-height: 30px
+		letter-spacing: 0.36px
+		display: none
+		max-width: 1100px
+	&__btn
+		width: 79px
+		height: 60px
+		border-radius: 10px
+		border: 1px solid #e6e6e6
+		background-color: #ffffff
+		position: absolute
+		right: 50px
+		top: 35px
+		outline: none
+		cursor: pointer
+		&:hover
+			background-color: #7d88e4
+			&:after
+				border: solid #fff
+				border-width: 0 2px 2px 0
+		&:after
+			content: ''
+			margin: auto
+			position: absolute
+			top: 50%
+			left: 50%
+			border: solid #333
+			border-width: 0 2px 2px 0
+			display: inline-block
+			width: 15px
+			height: 15px
+			transform: translate(-50%, -50%) rotate( 45deg)
+// News
+.news
+	position: relative
+	&:before
+		z-index: -1
+		position: absolute
+		height: 100%
+		width: 100%
+		content: ''
+		left: 0
+		top: 0
+		background-image: url(../img/pattern.jpg)
+		opacity: 0.2
+	&__wrapper
+
+	&__item
+		margin-bottom: 80px
+		display: inline-block
+		position: relative
+		overflow: hidden
+		box-shadow: 0 6px 27px 2px rgba(135, 137, 137, 0.21)
+		border-radius: 10px
+		text-decoration: none
+		&:hover
+			text-decoration: none
+			.news__img img
+				transform: scale(1.1)
+	&__img
+		overflow: hidden
+		img
+			transition: .4s
+	&__description
+		padding: 40px
+		background-color: #ffffff
+		color: #393a3f
+		font-size: 22px
+		font-weight: 700
+		line-height: 45px
+		transition: .3s
+		&:hover
+			// color: $accent-blue
+
+//License
+.license
+	position: relative
+	&:before
+		z-index: -1
+		position: absolute
+		height: 100%
+		width: 100%
+		content: ''
+		left: 0
+		top: 0
+		background-image: url(../img/pattern.jpg)
+		opacity: 0.2
+	&__wrapper
+
+	&__item
+		margin-bottom: 80px
+		display: inline-block
+		position: relative
+		overflow: hidden
+		box-shadow: 0 6px 27px 2px rgba(135, 137, 137, 0.21)
+		border-radius: 10px
+		text-decoration: none
+		&:hover
+			text-decoration: none
+			.news__img img
+				transform: scale(1.1)
+	&__img
+		overflow: hidden
+		img
+			transition: .4s
+	&__description
+		padding: 40px
+		background-color: #ffffff
+		color: #393a3f
+		font-size: 22px
+		font-weight: 700
+		line-height: 45px
+		transition: .3s
+		&:hover
+			// color: $accent-blue			
+	&__documents
+		h3
+			color: #393a3f
+			font-family: $title-font
+			font-size: 38px
+			font-weight: 900
+			font-style: italic
+			line-height: 30px
+			letter-spacing: 0.76px
+			margin-bottom: 30px
+		ul
+			list-style: none
+			margin: 0
+			padding: 0
+			padding-left: 25px
+			li
+				position: relative
+				&:before
+					position: absolute
+					top: -5px
+					left: -25px
+					color: #606de0
+					font-size: 40px
+					line-height: 1
+					content: "•"
+					font-weight: 700
+					padding-right: 10px
+				a
+					color: #393a3f
+					font-size: 22px
+					font-weight: 700
+					line-height: 38px
+					letter-spacing: 0.44px
+					&:hover
+						text-decoration: none
+						color: $accent-blue
+
+// Singl-news
+.singl-news
+	position: relative
+	&:before
+		z-index: -1
+		position: absolute
+		height: 100%
+		width: 100%
+		content: ''
+		left: 0
+		top: 0
+		background-image: url(../img/pattern.jpg)
+		opacity: 0.2
+	&__img
+		position: relative
+	&__title
+	&__content
+	&__wrapper
+		position: relative
+		z-index: 10
+		margin: auto
+		margin-top: -320px
+		padding: 60px
+		max-width: 1076px
+		box-shadow: 0 6px 27px 2px rgba(135, 137, 137, 0.21)
+		border-radius: 10px
+		overflow: hidden
+		background-color: #ffffff
+
+// Course
+.course
+	position: relative
+	&:before
+		z-index: -1
+		position: absolute
+		height: 100%
+		width: 100%
+		content: ''
+		left: 0
+		top: 0
+		background-image: url(../img/pattern.jpg)
+		opacity: 0.2
+	&__wrapper
+	&__img
+		margin-bottom: 40px
+	&__content
+		box-shadow: 0 6px 27px 2px rgba(135, 137, 137, 0.21)
+		border-radius: 10px
+		overflow: hidden
+		padding: 60px
+		background-color: #ffffff
+.diplom
+	position: relative
+	&:before
+		z-index: -1
+		position: absolute
+		height: 100%
+		width: 100%
+		content: ''
+		left: 0
+		top: 0
+		background-image: url(../img/pattern.jpg)
+		opacity: 0.2
+	&__wrapper
+	&__img
+		margin-bottom: 40px
+	&__content
+		box-shadow: 0 6px 27px 2px rgba(135, 137, 137, 0.21)
+		border-radius: 10px
+		overflow: hidden
+		padding: 60px
+		background-color: #ffffff
+	.training__list
+		position: relative
+		padding-left: 65px
+		margin: 50px 0
+		span
+			top: -10px
+			z-index: 2
+		li
+			margin-bottom: 45px
+			&:before
+				display: none
+			&:after
+				z-index: 1
+				top: 30px
+				left: -46px
+				width: 2px
+				height: 120%
+		.training__title
+			font-size: 20px		
+			color: #393a3f
+			
+//Contact
+.contact-page
+	&__wrapper
+		box-shadow: 0 6px 27px 2px rgba(135, 137, 137, 0.21)
+		border-radius: 10px
+		background-color: #ffffff
+		padding: 60px
+		a
+			color: #141415
+	&__item
+		margin-bottom: 20px		
+// Widget
+.widget
+	&__item
+		box-shadow: 0 6px 27px 2px rgba(135, 137, 137, 0.21)
+		border-radius: 10px
+		overflow: hidden
+		text-align: center
+		background-color: #ffffff
+		padding: 40px
+		margin: auto
+		padding-bottom: 60px
+		margin-bottom: 60px
+		max-width: 415px
+	&__title
+		color: #393a3f
+		font-size: 35px
+		font-weight: 700
+		line-height: 45px
+		padding-bottom: 25px
+		margin-bottom: 25px
+		position: relative
+		&:after
+			content: ''
+			position: absolute
+			bottom: 0
+			display: inline-block
+			left: 50%
+			transform: translateX(-50%)
+			width: 59px
+			height: 1px
+			background-color: #bebfc1
+	&__price
+		color: #393a3f
+		font-size: 35px
+		font-weight: 700
+		line-height: 45px
+	&__btn
+		margin-top: 40px
+		padding: 18px
+		max-width: 300px
+
+// Footer
+.footer
+	background-color: #f2f2f2
+	padding: 70px 25px
+	&__wrapper
+		margin: auto
+		max-width: 1640px
+	.logo
+		&__img
+			max-width: 77px
+		&__text
+			h2
+				color: #a372aa
+				font-size: 34px
+				line-height: 30px
+				margin-bottom: 5px
+			span
+				display: inline-block
+				color: #071b39
+				line-height: 18px
+				font-size: 13px
+	&-menu
+		display: flex
+		flex-wrap: wrap
+		padding: 0
+		list-style: none
+		margin: 0
+		&__item
+			flex: 0 0 33.33333%
+			max-width: 33.33333%
+			margin-bottom: 10px
+			&:nth-child(5)
+				flex: 0 0 66.66666%
+				max-width: 66.66666%
+			a
+				color: #000000
+				font-size: 15px
+				font-weight: 300
+				line-height: 20px
+				letter-spacing: 0.3px
+				text-decoration: none
+				&:hover
+					color: $accent-blue
+	&__license
+		margin-top: 20px
+		color: $title-color
+		font-size: 18px
+		font-weight: 700
+		line-height: 26px
+		letter-spacing: 0.36px
+		display: inline-block
+		&:hover
+			color: $accent-blue
+			text-decoration: none
+	&__numbers
+		display: flex
+		justify-content: space-between
+		margin-bottom: 60px
+		a
+			color: #a372aa
+			font-family: $title-font
+			font-size: 34px
+			font-weight: 700
+			line-height: 30px
+			letter-spacing: 0.68px
+			text-decoration: none
+			&:hover
+				color: $accent-blue
+				text-decoration: none
+	&__soc
+		a
+			display: inline-block
+			background-position: center center
+			background-size: cover
+			margin: 15px
+			&:hover
+				opacity: 0.8
+		&_vk
+			width: 31px
+			height: 19px
+			background-image: url(../img/soc-vk.png)
+		&_ins
+			width: 19px
+			height: 19px
+			background-image: url(../img/soc-instagram.png)
+	&__btn
+		padding: 18px
+		max-width: 300px		
+@import "media" // Always at the end

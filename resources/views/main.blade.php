@@ -1,5 +1,5 @@
 
-@extends('layouts.expert')
+@extends('layouts.expert', ['isMain' => true])
 
 @section('title', 'Курсы подготовки фитнес-тренеров')
 
@@ -11,75 +11,266 @@
 
 @section('content')
 
+    <!-- Main -->
+    <section id="main">
+        <div class="full-slider" id="full-slider">
 
-    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark fitness one">
-        <div class="col-md-8 px-0">
-            <div class="main-banner-title">
-                <h2 class="display-4 font-italic">Центр дополнительного образования "ЭКСПЕРТ" предлагает Вам стать дипломированным фитнес-тренером</h2>
-                <p class="lead my-3">Мы проводим образовательные курсы по подготовке фитнес-инструкторов с выдачей лицензированных Сертификатов, Свидетельств о дополнительном образовании, а также Удостоверений о повышении квалификации.</p>
-                <p class="lead mb-0"><a href="#about" class="text-white font-weight-bold">Узнать больше...</a></p>
+            <!-- slider item -->
+            <div class="full-slider__item">
+                <div style="background-image: url(img/main-slider.jpg);" class="slider-bg">
+                    <div class="full-slider__container">
+                        <h2 class="full-slider__title">
+                            Станьте<br>дипломированным<br>Фитнес-тренером
+                        </h2>
+                        <a href="/pages/license" class="full-slider__sub-title">
+                            Лицензия на Дополнительное<br>профессиональное образование<br>
+                            № 08972 от 29.03.2019
+                        </a>
+                        <a href="#call-popup" class="btn full-slider__btn popup">
+                            Записаться
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- end slider item -->
+
+            <!-- slider item -->
+            <div class="full-slider__item">
+                <div style="background-image: url(img/main-slider2.jpg);" class="slider-bg">
+                    <div class="full-slider__container">
+                        <h2 class="full-slider__title">
+                            Станьте<br>дипломированным<br>Фитнес-тренером
+                        </h2>
+                        <a href="license.html" class="full-slider__sub-title">
+                            Лицензия на Дополнительное<br>профессиональное образование<br>
+                            № 08972 от 29.03.2019
+                        </a>
+                        <a href="#call-popup" class="btn full-slider__btn popup">
+                            Записаться
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- end slider item -->
+
+
+            <!-- slider item -->
+            <div class="full-slider__item">
+                <div style="background-image: url(img/main-slider3.jpg);" class="slider-bg">
+                    <div class="full-slider__container">
+                        <h2 class="full-slider__title">
+                            Станьте<br>дипломированным<br>Фитнес-тренером
+                        </h2>
+                        <a href="license.html" class="full-slider__sub-title">
+                            Лицензия на Дополнительное<br>профессиональное образование<br>
+                            № 08972 от 29.03.2019
+                        </a>
+                        <a href="#call-popup" class="btn full-slider__btn popup">
+                            Записаться
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- end slider item -->
+        </div>
+    </section>
+    <!-- End Main -->
+
+
+
+@include("courses")
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="contact__wrapper">
+            <div class="contact__form">
+                <h2 class="title wow slideInUp">
+                    Запишитесь на курс
+                </h2>
+                <form action="#" method="post">
+                    <div class="formItem">
+                        <input name="name" type="text" placeholder="Имя">
+                        <input name="phone" type="text" placeholder="Телефон">
+                    </div>
+                    <div class="formSelect">
+                        <select name="select-curses">
+                            <option value="">Выберите курс</option>
+                            <option>Курс 1</option>
+                            <option>Курс 2</option>
+                            <option>Курс 3</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="formBtn btn">
+                        Записаться
+                    </button>
+                </form>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- End Contact -->
 
-    @include('courses')
-
-    @include('pages.enroll')
-    </div>
-    <div class="row" id="about">
-        <div class="col-md-8 blog-main">
-            <h3 class="pb-3 mb-4 font-italic border-bottom">
-                Почему Вам стоит записаться на наши курсы?
-            </h3>
-
-            <div class="blog-post">
-                <h3>Преимущества обучения в "Центре дополнительного образования "ЭКСПЕРТ"</h3>
-                <ul>
-                    <li>Обучение проводят фитнес-эксперты, имеющие опыт работы и преподавания в сфере фитнеса более 15 лет
-                    </li>
-                    <li>Образовательные курсы лицензированы Министерством образования, науки и молодежной политики Краснодарского края</li>
-                    <li>По окончании всем участникам выдается <em><a>СЕРТИФИКАТ</a></em> о прохождении семинара</li>
-                    <li>Успешно сдавшим экзамен выдается СВИДЕТЕЛЬСТВО О ДОПОЛНИТЕЛЬНОМ ОБРАЗОВАНИИ (при обучении по курсам объемом 24 часа и более)
-                    <li>Если Вы по каким-либо причинам не сдаете экзамен, все пересдачи бесплатны</li>
-                    <li>Имеющим среднее специальное или высшее физкультурное образование есть возможность получить <em><a>УДОСТОВЕРЕНИЕ</a></em> о повышении квалификации</li>
-                    <li>Cеминары проводятся преимущественно в выходные 	дни, Вам не придется отпрашиваться с работы или отменять занятия</li>
-                    <li>Образовательные курсы длительностью более двух дней	разбиваются на две-три части, для того,	чтобы Вы успели подробно изучить теоретический материал, попробовать проводить комплексы упражнений, сформулировать возникшие вопросы и задать их на второй части курса</li>
-                    <li>Вы получаете все необходимые методические материалы, а также музыку для проведения занятий</li>
-                    <li>В случае если Вы опытный фитнес-тренер, но не имеете документа об образовании, Вы можете пройти обучение ЭКСТЕРНОМ и сдав экзамен получить <a><em>СВИДЕТЕЛЬСТВО О ДОПОЛНИТЕЛЬНОМ ОБРАЗОВАНИИ</em></a></li>
-                </ul>
-            </div><!-- /.blog-post -->
-
-            @include('pages.teachers')
-
-        </div><!-- /.blog-main -->
-
-        <aside class="col-md-4 blog-sidebar">
-            <div class="p-3 mb-3 bg-light rounded">
-                <h4 class="font-italic">Лицензия</h4>
-                <p class="mb-0">Мы ведем свою деятельность на основе Лицензии Министерства образования, науки и молодёжной политики Краснодарского края № 08972 от 29 марта 2019 г.
-                </p>
-                <p class="lead mb-0"><a href="/pages/licences" class="text-info font-weight-bold">Посмотреть...</a></p>
+    <!-- Advantages -->
+    <section class="advantages" id="advantages">
+        <div class="advantages__container">
+            <h2 class="title wow slideInUp">
+                Почему вам стоит записаться?
+            </h2>
+            <div class="row advantages__wrapper">
+                <div class="col-12 col-lg-6 col-xl-4 advantages__item wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="advantages__number">
+                        01
+                    </div>
+                    <div class="advantages__description">
+                        <div class="advantages__title">
+                            Лицензия на деятельность
+                        </div>
+                        <div class="advantages__text">
+                            Образовательные курсы лицензированы
+                            Министерством образования, науки и молодежной политики Краснодарского края
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-4 advantages__item wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="advantages__number">
+                        02
+                    </div>
+                    <div class="advantages__description">
+                        <div class="advantages__title">
+                            Выдача дипломов и сертификатов
+                        </div>
+                        <div class="advantages__text">
+                            При прохождении курсов выдаются Дипломы, Сертификты, Свидетельства о  дополнительном образовании и Удостоверения о повышении квалификации
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-4 advantages__item wow fadeInUp" data-wow-delay="0.9s">
+                    <div class="advantages__number">
+                        03
+                    </div>
+                    <div class="advantages__description">
+                        <div class="advantages__title">
+                            Возможность дистанционного обучения
+                        </div>
+                        <div class="advantages__text">
+                            Для удобства наших студентов мы окрыли направления курсов с возможностью дистанционного обучения
+                        </div>
+                    </div>
+                </div>
+                <div class="d-none d-xl-block col-12 col-lg-6 col-xl-4 advantages__item wow fadeInUp" data-wow-delay="0.3s"></div>
+                <div class="col-12 col-lg-6 col-xl-4 advantages__item wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="advantages__number">
+                        04
+                    </div>
+                    <div class="advantages__description">
+                        <div class="advantages__title">
+                            Опыт работы наших экспертов
+                        </div>
+                        <div class="advantages__text">
+                            Обучение проводят фитнес-эксперты, имеющие опыт работы и преподавания в сфере фитнеса более 15 лет
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 col-xl-4 advantages__item wow fadeInUp" data-wow-delay="0.9s">
+                    <div class="advantages__number">
+                        05
+                    </div>
+                    <div class="advantages__description">
+                        <div class="advantages__title">
+                            Возможность пройти обучение экстерном
+                        </div>
+                        <div class="advantages__text">
+                            В случае если Вы опытный фитнес-тренер, но не имеете документа об образовании, Вы можете пройти обучение ЭКСТЕРНОМ
+                        </div>
+                    </div>
+                </div>
+                <div class="d-none d-xl-block col-12 col-lg-6 col-xl-4 advantages__item wow fadeInUp" data-wow-delay="0.3s"></div>
+                <div class="col-12 col-lg-6 col-xl-4 advantages__item wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="advantages__number">
+                        06
+                    </div>
+                    <div class="advantages__description">
+                        <div class="advantages__title">
+                            Широкий выбор работы
+                        </div>
+                        <div class="advantages__text">
+                            После прохождения курсов вы получаете возможность работы в любом фитнес-клубе и в государственных учреждениях
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+    <!-- End Advantages -->
 
-            <div class="p-3" id="schedule">
-                <h4 class="font-italic">Расписание курсов</h4>
-                <ol class="list-unstyled mb-0">
-                    <li><a href="/schedule">Май-июль 2019 г.</a></li>
-                    <li><a>Август-сентябрь 2019 г.</a></li>
-                    <li><a>Октябрь-ноябрь 2019 г.</a></li>
-                </ol>
+    <!-- Certificate -->
+    <section class="certificate" id="certificate">
+        <div class="certificate__container">
+            <h2 class="title wow slideInUp">
+                Что вы получите?
+            </h2>
+        </div>
+        <div class="certificate__wrapper">
+            <div class="certificate__container">
+                <div class="row align-items-center">
+                    <div class="certificate__block col-12 col-xl-7 order-1 order-xl-0">
+                        <div class="certificate__item active" data-cer="0">
+                            <div class="certificate__title">
+                                Диплом
+                            </div>
+                            <div class="certificate__text">
+                                о профессиональной переподготовке - официальный, лицензированный документ о дополнительном профессиональном образовании в Российской Федерации, дающий право на профессиональную деятельность в сфере фитнеса и физической культуры
+                            </div>
+                        </div>
+                        <div class="certificate__item" data-cer="1">
+                            <div class="certificate__title">
+                                Свидетельство
+                            </div>
+                            <div class="certificate__text">
+                                о дополнительном образовании выдается при успешной сдаче зачета на курсах длительностью 24 академических часа и более
+                            </div>
+                        </div>
+                        <div class="certificate__item" data-cer="2">
+                            <div class="certificate__title">
+                                Сертификат
+                            </div>
+                            <div class="certificate__text">
+                                При краткосрочном обучении всем участникам выдается Сертификат
+                            </div>
+                        </div>
+                        <div class="certificate__item" data-cer="3">
+                            <div class="certificate__title">
+                                Удостоверение
+                            </div>
+                            <div class="certificate__text">
+                                о профессиональной переподготовке - официальный, лицензированный документ о дополнительном профессиональном образовании в Российской Федерации, дающий право на профессиональную деятельность в сфере фитнеса и физической культуры
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certificate__img col-12 col-xl-5 order-0 order-xl-1">
+                        <a href="img/certificate.jpg" data-image="0" class="active popup-img animated fadeInRight">
+                            <img src="img/certificate.jpg" class="img-responsive"  alt="#">
+                        </a>
+                        <a href="img/license.jpg" data-image="1" class="popup-img animated fadeInRight">
+                            <img src="img/license.jpg" class="img-responsive"  alt="#">
+                        </a>
+                        <a href="img/certificate.jpg" data-image="2" class="popup-img animated fadeInRight">
+                            <img src="img/certificate.jpg" class="img-responsive"  alt="#">
+                        </a>
+                        <a href="img/license.jpg" data-image="3" class="popup-img animated fadeInRight">
+                            <img src="img/license.jpg" class="img-responsive"  alt="#">
+                        </a>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+    <!-- End Certificate -->
 
-            <div class="p-3">
-                <h4 class="font-italic">Мы в соц. сетях</h4>
-                <ol class="list-unstyled">
-                    <li><a href="http://vk.com/club181150794"><img class="social-icon" src="/images/vk.png"></a></li>
-                    {{--<li><a href="https://facebook.com">Facebook</a></li>--}}
-                </ol>
-            </div>
-        </aside><!-- /.blog-sidebar -->
+    @include("pages/training")
+    @include("pages/reviews")
 
-    </div><!-- /.row -->
+    @include("pages/questions")
+
 
 @endsection
 

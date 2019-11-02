@@ -56,6 +56,10 @@ class CoursesController extends Controller
     public function show($id)
     {
         $course = Course::find($id);
+
+        if (!$course) {
+            return view('course');
+        }
         $items = session('items');
 
         if (is_array($items) && in_array($course->id, array_values($items))) {

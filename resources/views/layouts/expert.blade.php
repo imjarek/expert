@@ -1,91 +1,264 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)https://getbootstrap.com/docs/4.0/examples/blog/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="ru">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+
+    <meta charset="utf-8">
+    <!-- <base href="/"> -->
+
+    <title>Эксперт</title>
     <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link rel="icon" href="/favicon.jpeg">
 
-    <title>Центр дополнительного образования "Эксперт" - @yield('title')</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template Basic Images Start -->
+    <meta property="og:image" content="path/to/image.jpg">
+    <link rel="icon" href="/img/favicon/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon-180x180.png">
+    <!-- Template Basic Images End -->
 
-    <!-- Custom styles for this template -->
-    <link href="/css/css" rel="stylesheet">
-    <link href="/css/app.css" rel="stylesheet">
+    <!-- Custom Browsers Color Start -->
+    <meta name="theme-color" content="#000">
+    <!-- Custom Browsers Color End -->
+
+
+    <link rel="stylesheet" href="/libs/slick/slick.css">
+    <link rel="stylesheet" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" href="/libs/popup/magnific-popup.css">
+
+    <link rel="stylesheet" href="/css/main.min.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,600i,700&display=swap&subset=cyrillic" rel="stylesheet">
+    <script type="text/javascript">
+        function load()
+        {
+            window.location.hash="reviews";
+        }
+    </script>
 </head>
 
 <body>
+<!-- Header -->
+<header class="header" id="header">
+    <div class="header__wrapper">
 
-<div class="container" id="top">
-    <header class="blog-header py-3">
-        <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-4 pt-1">
-                <img src="/images/logo.png">
+        <a href="/main" class="logo">
+            <img src="/img/logo.png" class="img-responsive" alt="#">
+            <div class="logo__text">
+                <h2>ЭКСПЕРТ</h2>
+                <span>Центр дополнительного образования</span>
             </div>
-            <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark" href="/about">ЦДО "Эксперт"</a>
-            </div>
-            <div class="col-4 d-flex justify-content-end align-items-center">
-                <a class="text-muted" href="/">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
+        </a>
+
+        <div class="mob-burger" id="mob-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav class="header__menu" id="header-menu-js">
+            <ul class="menu">
+                <li class="menu__item">
+                    <a href="/">
+                        Главная
+                    </a>
+                </li>
+                <li class="menu__item scroll-link">
+                    <a href="/#programs">
+                        Курсы
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a href="/pages/diplom">
+                        Диплом
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a href="/pages/license">
+                        Лицензия
+                    </a>
+                </li>
+                <li class="menu__item scroll-link">
+                    <a href="/#reviews">
+                        Отзывы
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a href="/pages/news">
+                        Новости
+                    </a>
+                </li>
+                <li class="menu__item">
+                    <a href="/pages/contact">
+                        Контакты
+                    </a>
+                </li>
+            </ul>
+
+            <div class="menu__btn">
+                <a href="#login-popup" class="btn__signUp popup">
+                    Вход
                 </a>
-                <a class="btn btn-lg btn-outline-secondary" href="/main/#enroll">Записаться на курс</a>
-                <div class="px-2 ">
-                    <a class="fa fa-shopping-cart" id="show-cart-btn" href="/cart" style="color: #9fcdff; font-size: 32px;"></a>
+            </div>
+        </nav>
+
+        <div class="header__btn">
+            <a href="#login-popup" class="btn__signUp popup">
+                Вход
+            </a>
+        </div>
+
+    </div>
+</header>
+<div class="mob-menu__bg"></div>
+<!-- End Header -->
+
+<!-- Main -->
+
+<!-- End Main -->
+
+@include('common.errors')
+@component('common.alert')
+@yield('content')
+
+<footer class="footer" id="footer">
+    <div class="footer__wrapper">
+        <div class="row">
+            <div class="col-12 col-md-5 col-xl-3">
+                <a href="/" class="logo">
+                    <div class="logo__img">
+                        <img src="/img/logo.png" class="img-responsive" alt="#">
+                    </div>
+                    <div class="logo__text">
+                        <h2>ЭКСПЕРТ</h2>
+                        <span>Центр дополнительного образования</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-4 d-none d-xl-block">
+                <nav>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item">
+                            <a href="/">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="/pages/license">
+                                Лицензия
+                            </a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="/pages/news">
+                                Новости
+                            </a>
+                        </li>
+                        <li class="footer-menu__item scroll-link">
+                            <a href="/#programs">
+                                Курсы
+                            </a>
+                        </li>
+                        <li class="footer-menu__item scroll-link">
+                            <a href="/#reviews">
+                                Отзывы
+                            </a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="/pages/diplom">
+                                Диплом
+                            </a>
+                        </li>
+                        <li class="footer-menu__item">
+                            <a href="/pages/contact">
+                                Контакты
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <a href="pages/license" class="footer__license">
+                    Лицензия номер 08972 от 29.03.2019
+                </a>
+            </div>
+            <div class="col-12 col-md-7 col-xl-5 ">
+                <div class="footer__numbers">
+                    <a href="tel:+7(929)8358777">
+                        +7 (929) 83 58 777
+                    </a>
+                    <a href="tel:+7(961)5858995">
+                        +7 (961) 58 58 995
+                    </a>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                    <div class="footer__soc">
+                        <a href="#" class="footer__soc_vk">
+                        </a>
+                        <a href="#" class="footer__soc_ins">
+                        </a>
+                    </div>
+                    <a href="#call-popup" class="footer__btn btn popup">
+                        Записаться
+                    </a>
                 </div>
             </div>
         </div>
-    </header>
-
-    <div class="nav-scroller py-1 mb-2">
-        <nav class="nav d-flex justify-content-between">
-            <a class="p-2 text-muted" href="/main#about">О нас</a>
-            <a class="p-2 text-muted" href="/main#courses">Курсы</a>
-            <a class="p-2 text-muted" href="/pages/schedule">Расписание</a>
-            <a class="p-2 text-muted" href="/main#teachers">Преподаватели</a>
-            <a class="p-2 text-muted" href="/pages/licences">Лицензия</a>
-            <a class="p-2 text-muted" href="/pages/contacts">Контакты</a>
-        </nav>
     </div>
-
-</div>
-
-
-<main role="main" class="container">
-
-    @include('common.errors')
-    @component('common.alert')
-    @yield('content')
-
-</main><!-- /.container -->
-
-
-<footer class="blog-footer">
-    <p>ЦДО "Эксперт" (с) 2019<p>
-        <a href="#top">Наверх</a>
-    </p>
 </footer>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="/js/jquery-3.4.1.min.js"></script>
-<script src="/js/popper.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/holder.min.js"></script>
-<script src="/js/main.js"></script>
-<script>
-  Holder.addTheme('thumb', {
-    bg: '#55595c',
-    fg: '#eceeef',
-    text: 'Thumbnail'
-  });
-</script>
+<!-- Popup -->
+<div class="popup-modal mfp-hide form-popup" tabindex="-1" id="login-popup">
+    <div class="close close-popup"></div>
+    <div class="wrapper">
+        <form class="form-signin" action="/" method="get">
+            <h2 class="form-signin-heading text-center">
+                Вход в личный кабинет
+            </h2>
+            <div class="form-control">
+                <input type="text" name="username" placeholder="Логин" required=""/>
+            </div>
+            <div class="form-control">
+                <input type="password" class="" name="password" placeholder="Пароль" required=""/>
+            </div>
+            <button class="btn" type="submit">Войти</button>
+        </form>
+    </div>
+</div>
 
+<div class="popup-modal mfp-hide form-popup" tabindex="-1" id="call-popup">
+    <div class="close close-popup"></div>
+        <form class="form-signin" action="/enroll" method="post">
+            @csrf
+        <h2 class="form-signin-heading text-center">
+            Запись на курс
+        </h2>
+        <div class="form-control">
+            <input type="text" name="name" placeholder="Ваше имя" required=""/>
+        </div>
+        <div class="form-control">
+            <input type="phone" class="" name="phone" placeholder="Ваш телефон" required=""/>
+        </div>
+{{--        <select class="custom-select" name="course">--}}
+{{--            <option selected>--- Выберите курс ---</option>--}}
+{{--            <option>Детский фитнес (дети 3-6 лет)</option>--}}
+{{--            <option>Детский фитнес (дети 7-10 лет)</option>--}}
+{{--            <option>Фитнес в перинатальном периоде</option>--}}
+{{--            <option>Фитнес-йога</option>--}}
+{{--            <option>Базовая аэробика / степ" (начальный уровень)</option>--}}
+{{--            <option>Силовой / функциональный тренинг</option>--}}
+{{--            <option>Стретчинг</option>--}}
+{{--            <option>Диагностика физического состояния в фитнесе</option>--}}
+{{--        </select>--}}
+        <button class="btn" type="submit">Записаться!</button>
+    </form>
+</div>
 
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="250" viewBox="0 0 200 250" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="13" style="font-weight:bold;font-size:13pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body></html>
+<script src="/js/scripts.min.js"></script>
+<script src="/libs/slick/slick.min.js"></script>
+<script src="/libs/wow/wow.min.js"></script>
+<script src="/libs/popup/jquery.magnific-popup.min.js"></script>
+
+<script src="/js/common.js"></script>
+</body>
+</html>
+
