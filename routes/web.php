@@ -16,8 +16,12 @@ Route::get('/', function(){
 });
 Route::get('/main', 'Controller@mainPage');
 
-Route::get('/about', function () {
+Route::get('/news', function () {
+    return view('pages/news');
+});
 
+Route::get('/news/{id}', function () {
+    return view('pages/new');
 });
 
 Route::get('image-upload', 'Controller@imageUpload');
@@ -68,5 +72,5 @@ Route::prefix('classroom')
     Route::get('{orderId}/{courseId}', 'ClassRoomController@showClassroom');
 });
 
-
+Route::post('enroll', 'UsersController@enroll');
 Route::get('test', 'TestController@test');
