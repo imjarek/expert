@@ -474,15 +474,15 @@
                             <p class="psychology__type">
                                 Семинар – тренинг
                             </p>
-                            Методы сказкотерапии в диагностике,	консультировании и психотерапии
+                            Основы куклотерапии
                         </a>
                     </td>
                     <td class="psychology__time">
-                        <span>32 академических часа, 4 дня</span>
+                        <span>16 академических часов, 2 дня</span>
                         Эксперт: Хорошун Марина
                     </td>
                     <td class="psychology__price">
-                        6 500 руб
+                        4 000 руб
                     </td>
                     <td class="psychology__link">
                         <a href="/courses/100"></a>
@@ -497,15 +497,15 @@
                             <p class="psychology__type">
                                 Семинар – тренинг
                             </p>
-                            Методы сказкотерапии в диагностике,	консультировании и психотерапии
+                            Практика работы с предстрессовыми и стрессовыми состояниями
                         </a>
                     </td>
                     <td class="psychology__time">
-                        <span>32 академических часа, 4 дня</span>
+                        <span>16 академических часов, 2 дня</span>
                         Эксперт: Хорошун Марина
                     </td>
                     <td class="psychology__price">
-                        6 500 руб
+                        4 000 руб
                     </td>
                     <td class="psychology__link">
                         <a href="/courses/100"></a>
@@ -515,24 +515,7 @@
 
                 <!-- Psychology item -->
                 <tr class="psychology__item wow slideInUp">
-                    <td class="psychology__title">
-                        <a href="/courses/100">
-                            <p class="psychology__type">
-                                Семинар – тренинг
-                            </p>
-                            Методы сказкотерапии в диагностике,	консультировании и психотерапии
-                        </a>
-                    </td>
-                    <td class="psychology__time">
-                        <span>32 академических часа, 4 дня</span>
-                        Эксперт: Хорошун Марина
-                    </td>
-                    <td class="psychology__price">
-                        6 500 руб
-                    </td>
-                    <td class="psychology__link">
-                        <a href="/courses/100"></a>
-                    </td>
+
                 </tr>
                 <!-- End Psychology item -->
             </table>

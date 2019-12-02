@@ -107,7 +107,7 @@
                             </div>
                             <div class="reviews__bottom">
                                 <div class="reviews__instagram">
-                                    <a href="#" target="_blank">
+                                    <a href="https://www.instagram.com/bondareva_emiliya" target="_blank">
                                         Эмилия Бондарева
                                     </a>
                                 </div>
@@ -123,12 +123,13 @@
                         </div>
                         <div class="reviews__description">
                             <div class="reviews__text">
-                                Посещала курсы по фитнес - йоге под руководством Оксаны Сергеевны и осталась очень довольна, что прошла их! Очень пригодились они в жизни! Мне понравился и формат курсов - сочетание теории и практики одновременно дают 100% принятие информации!
+                                Когда принимаешь решение перейти из занимающихся фитнес-йогой в преподаватели, необходимо тщательно подходить к выбору обучающего семинара. Преподаватель йоги - это человек, знающий анатомию, физиологию и биомеханику йоги. Сюда входят ещё и психологическое сопровождение занимающихся. Свое обучение я проходила у Филимоновой Оксаны Сергеевны. Мои знания, умения и навыки были сформированы на её занятиях фитнес-йогой и обучающем семинаре. Самое главное в преподавании йоги - это её методика оздоровительной направленности, которая тщательно рассматривается на семинаре. Самое сложное провести занятие используя зеркальный показ на первых этапах это взрыв мозга... Выражаю огромную Благодарность Оксане  она мой учитель.
+                                P. S. Когда семинар проводит кандидат педагогических наук, доцент - это очень ценно. Так как идёт серьёзная подготовка фитнес-инструктора.
                             </div>
                             <div class="reviews__bottom">
                                 <div class="reviews__instagram">
-                                    <a href="#" target="_blank">
-                                        Марина Захарова
+                                    <a href="https://www.instagram.com/teacher_saido4k" target="_blank">
+                                        Саида Евтых
                                     </a>
                                 </div>
                                 <div class="reviews__control">
@@ -138,6 +139,132 @@
                             </div>
                         </div>
                     </div>
+                    <div class="reviews__item">
+                        <div class="reviews__img" style="background-image: url(img/reviews-3.png);">
+                        </div>
+                        <div class="reviews__description">
+                            <div class="reviews__text">
+                                Хочу сказать огромное спасибо нашему преподавателю курса «Фитнес йога» Оксане Сергеевне! Материал изложен очень доступно и интересно, а практическая часть - это одно удовольствие. Во время обучения полностью погружаешься в процесс, чувствуешь каждую мышцу и начинаешь осознанно выполнять каждую асану. Этот курс вдохновил меня на постоянную практику и преподавание.
+                            </div>
+                            <div class="reviews__bottom">
+                                <div class="reviews__instagram">
+                                    <a href="https://www.instagram.com/korolevanastasy" target="_blank">
+                                        Королева Анастасия
+                                    </a>
+                                </div>
+                                <div class="reviews__control">
+                                    <button class="slidArrow slidArrow-left"></button>
+                                    <button class="slidArrow slidArrow-right"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews__item">
+                        <div class="reviews__img" style="background-image: url(img/reviews-4.png);">
+                        </div>
+                        <div class="reviews__description">
+                            <div class="reviews__text">
+                                Окончила курс "Детский фитнес".  Сказать,  что я в восторге - ничего не сказать! Курсы интересные, многогранные. В мой курс вошли фитбол-гимнастика,  детская йога, упражнения при нарушениях осанки. Чёткая теория, интереснейшая практика, великолепное пособие! Труд колоссальный! Атмосфера очень тёплая! Рада, что попала на курсы именно к Оксане!
+                            </div>
+                            <div class="reviews__bottom">
+                                <div class="reviews__instagram">
+                                    <a href="https://www.instagram.com/babaeva6932" target="_blank">
+                                        Наталья Бабаева
+                                    </a>
+                                </div>
+                                <div class="reviews__control">
+                                    <button class="slidArrow slidArrow-left"></button>
+                                    <button class="slidArrow slidArrow-right"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews__item">
+                        <div class="reviews__img" style="background-image: url(img/reviews-5.png);">
+                        </div>
+                        <div class="reviews__description">
+                            <div class="reviews__text">
+                                Это был бесценный и колоссальный опыт! Спасибо вам за старания, за столь углубленную и актуальную информацию! И, конечно же, за позитивный настрой и неординарный подход к изучению! Уже применяю полученные знания в жизни, и это очень продуктивно! Еще раз спасибо!
+                            </div>
+                            <div class="reviews__bottom">
+                                <div class="reviews__instagram">
+                                    <a href="https://www.instagram.com/ms.k.vadimovna/" target="_blank">
+                                        Кристина
+                                    </a>
+                                </div>
+                                <div class="reviews__control">
+                                    <button class="slidArrow slidArrow-left"></button>
+                                    <button class="slidArrow slidArrow-right"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews__item">
+                        <div class="reviews__img" style="background-image: url(img/reviews-6.png);">
+                        </div>
+                        <div class="reviews__description">
+                            <div class="reviews__text">
+                                Спасибо за обучение, весь материал был изложен грамотно и доступно, приятно удивили методички, в которых мы записывали теорию, а практические упражнения опробовали на себе!
+                            </div>
+                            <div class="reviews__bottom">
+                                <div class="reviews__instagram">
+                                    <a href="https://vk.com/id82945828" target="_blank">
+                                        Марина Хакурате
+                                    </a>
+                                </div>
+                                <div class="reviews__control">
+                                    <button class="slidArrow slidArrow-left"></button>
+                                    <button class="slidArrow slidArrow-right"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews__item">
+                        <div class="reviews__img" style="background-image: url(img/reviews-7.png);">
+                        </div>
+                        <div class="reviews__description">
+                            <div class="reviews__text">
+                                Добрый день всем!!! Посещала курсы Оксаны 2 года назад, прошли на ура! 2 дня пролетели незаметно, много нового полезного и интересного почерпнула для себя. После курсов работаю инструктором по детскому фитнесу, воспитанники и родители очень рады! Спасибо Оксане за "перезагрузку".
+                            </div>
+                            <div class="reviews__bottom">
+                                <div class="reviews__instagram">
+                                    <a href="https://vk.com/stoyakina1981" target="_blank">
+                                        Татьяна Стоякина
+                                    </a>
+                                </div>
+                                <div class="reviews__control">
+                                    <button class="slidArrow slidArrow-left"></button>
+                                    <button class="slidArrow slidArrow-right"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews__item">
+                        <div class="reviews__img" style="background-image: url(img/reviews-8.png);">
+                        </div>
+                        <div class="reviews__description">
+                            <div class="reviews__text">
+                                Спасибо большое за семинар по детскому фитнесу! За предложенные методики и разнообразные полезные для здоровья упражнения на фитболах. Мне очень понравились практические занятия. Многие упражнения уже  использую в своих занятиях.
+                            </div>
+                            <div class="reviews__bottom">
+                                <div class="reviews__instagram">
+                                    <a href="https://vk.com/id167433613" target="_blank">
+                                        Марина Ващилина
+                                    </a>
+                                </div>
+                                <div class="reviews__control">
+                                    <button class="slidArrow slidArrow-left"></button>
+                                    <button class="slidArrow slidArrow-right"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
                 </div>
 
             </div>

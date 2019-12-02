@@ -247,17 +247,17 @@
                         </div>
                     </div>
                     <div class="certificate__img col-12 col-xl-5 order-0 order-xl-1">
-                        <a href="img/certificate.jpg" data-image="0" class="active popup-img animated fadeInRight">
-                            <img src="img/certificate.jpg" class="img-responsive"  alt="#">
+                        <a href="/img/diplomas/diplom.jpg" data-image="0" class="active popup-img animated fadeInRight">
+                            <img id="myImg" src="/img/diplomas/diplom.jpg" class="img-responsive"  alt="#">
                         </a>
-                        <a href="img/license.jpg" data-image="1" class="popup-img animated fadeInRight">
-                            <img src="img/license.jpg" class="img-responsive"  alt="#">
+                        <a href="/img/diplomas/svidet.jpg" data-image="1" class="popup-img animated fadeInRight">
+                            <img id="myImg" src="/img/diplomas/svidet.jpg" class="img-responsive"  alt="#">
                         </a>
-                        <a href="img/certificate.jpg" data-image="2" class="popup-img animated fadeInRight">
-                            <img src="img/certificate.jpg" class="img-responsive"  alt="#">
+                        <a href="/img/diplomas/cert.jpg" data-image="2" class="popup-img animated fadeInRight">
+                            <img id="myImg" src="/img/diplomas/cert.jpg" class="img-responsive"  alt="#">
                         </a>
-                        <a href="img/license.jpg" data-image="3" class="popup-img animated fadeInRight">
-                            <img src="img/license.jpg" class="img-responsive"  alt="#">
+                        <a href="/img/diplomas/udost.jpg" data-image="3" class="popup-img animated fadeInRight">
+                            <img id="myImg" src="/img/diplomas/udost.jpg" class="img-responsive"  alt="#">
                         </a>
                     </div>
                 </div>
