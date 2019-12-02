@@ -62,6 +62,20 @@
                                 <img class="img-responsive" src="img/teacher-3.jpg" alt="">
                             </div>
                             <div class="slider-1__description text-content">
+                                <b>Каторжная Екатерина</b>
+                                <p>
+                                    Является практикующим тренером с обширным опытом тренировок по аэробным классам, классической аэробике, степ-аэробике, фитболу
+                                </p>
+                                <p>
+                                    Преподает как в персональных, так и групповых занятиях
+                                </p>
+                            </div>
+                        </div>
+                        <div class="slider-1__item">
+                            <div class="slider-1__img">
+                                <img class="img-responsive" src="img/teacher-4.jpg" alt="">
+                            </div>
+                            <div class="slider-1__description text-content">
                                 <b>Хорошун Марина Эдуардовна</b>
                                 <p>Психолог-практик, магистр по направлению подготовки &laquo;Психолого-педагогическое образование&raquo;.</p>
                                 <p>Педагогический стаж работы 16 лет (преподаватель кафедры психологии) в ФГБОУ ВО Кубанский государственный университет физической культуры, спорта и туризма, г. Краснодар.</p>
@@ -99,6 +113,12 @@
                                 <img class="img-responsive" src="img/teacher-3.jpg" alt="">
                             </div>
                         </div>
+                        <div class="slider-2__item">
+                            <div class="slider-2__img">
+                                <img class="img-responsive" src="img/teacher-4.jpg" alt="">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
