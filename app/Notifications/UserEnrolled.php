@@ -12,7 +12,7 @@ class UserEnrolled extends Notification
 {
     public function __construct(array $data)
     {
-        $this->message = sprintf('Запись на курс: %s, %s, %s', $data['phone'], $data['name'], $data['course']);
+        $this->message = sprintf('Запись на курс: %s, %s', $data['phone'], $data['name']);
     }
     public function via($notifiable)
     {
