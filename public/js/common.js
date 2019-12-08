@@ -75,9 +75,11 @@ $(function() {
         var tab = $(this).attr("data-tab");
 
         $('.programs__btn').removeClass("active");
-        $('.programs__wrapper').removeClass("active");
-        $(this).addClass("active");
-		$(".programs__wrapper[data-content = " + tab + "]").addClass("active");
+		$(this).addClass("active");
+        // TODO прятать курсы согласно форме обучения
+		//$('.programs__wrapper').removeClass("active");
+
+		//$(".programs__wrapper[data-content = " + tab + "]").addClass("active");
        
     });
 

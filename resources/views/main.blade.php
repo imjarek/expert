@@ -78,7 +78,7 @@
 
 
 
-@include("courses")
+@include("courses", ['courses' => $courses])
 
     <!-- Contact -->
     <section class="contact" id="contact">

@@ -16,7 +16,7 @@ class PanelCoursesController extends Controller
      */
     public function index()
     {
-        return view('panel.courses', ['courses' => Course::all()]);
+        return view('panel.courses', ['courses' => Course::orderBy('order', 'ASC')->get()]);
     }
 
     /**
@@ -100,13 +100,13 @@ class PanelCoursesController extends Controller
                 ->withInput()
                 ->withErrors($validator);
         }
-        $timestamp = (new \DateTime())->format('Y-m-d H:i:s');
+
         if ($request->file('preview')) {
-            $previewFileName = $timestamp . '_' . $request->file('preview')->getClientOriginalName();
+            $previewFileName = uniqid() . '_' . $request->file('preview')->getClientOriginalName();
             $request->file('preview')->storeAs('pics', $previewFileName);
         }
         if ($request->file('picture')) {
-            $pictureFileName = $timestamp . '_' . $request->file('picture')->getClientOriginalName();
+            $pictureFileName = uniqid() . '_' . $request->file('picture')->getClientOriginalName();
             $request->file('picture')->storeAs('pics', $pictureFileName);
         }
         $course = Course::find($id);
@@ -135,7 +135,9 @@ class PanelCoursesController extends Controller
      */
     public function destroy($id)
     {
-        $course = Course::findOrFail($id)->delete();
+        $course = Course::findOrFail($id);
+        $course->types()->detach();
+        $course->delete();
         redirect('/panel/courses');
     }
 }

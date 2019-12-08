@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label for="description">Описание</label>
-                <input type="input" class="form-control" name="description" id="description" placeholder="Описание">
+                <input type="textarea" id="text-editor" class="form-control" name="description" id="description" placeholder="Описание">
             </div>
             <div class="form-group">
                 <label for="type">Тип</label>

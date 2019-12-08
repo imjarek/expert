@@ -52,7 +52,7 @@
                 <div class="card-body">
                     <h6 class="font-weight-bold">{{ $course->announcement }} </h6>
                     <hr>
-                    {{ Str::limit($course->description, 200, '...') }}
+                    {!! Str::limit($course->description, 500, '...') !!}
                 </div>
             </div>
         </div>

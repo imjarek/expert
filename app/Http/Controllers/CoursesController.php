@@ -15,7 +15,7 @@ class CoursesController extends Controller
     public function index()
     {
         $items = session('items');
-        $courses = Course::isActive()->orderBy('order')->get();
+        $courses = Course::isActive()->orderBy('order', 'ASC')->get();
         if (is_array($items)) {
             $courses = $courses->map(function ($course) use ($items) {
                 $course->inCart = in_array($course->id, array_values($items));

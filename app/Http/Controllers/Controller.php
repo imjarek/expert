@@ -14,9 +14,12 @@ class Controller extends BaseController
     public function mainPage()
     {
         $data = (new CoursesController())->index();
-        $data['isMain'] = true;
 
-        return view('main', [$data]);
+        $defaults = array(
+            'schedule' => env('DEFAULT_SCHEDULE'),
+            'expert' => env('DEFAULT_EXPERT')
+        );
+        return view('main', ['defaults' => $defaults, 'courses' => $data['courses']]);
     }
     public function imageUpload()
     {
@@ -30,7 +33,7 @@ class Controller extends BaseController
             'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
-        $imageName = time().'.'.request()->file->getClientOriginalExtension();
+        $imageName = uniqid().'.'.request()->file->getClientOriginalExtension();
 
         request()->file->move(public_path('images/uploads'), $imageName);
         return "/images/uploads/$imageName";

@@ -46,8 +46,10 @@
                     <div class="mb-8">
                         <h6 class="font-weight-bold">{{ $course->announcement }} </h6>
                         <hr>
-                        <div>{{ $course->description }}</div>
+                        <div>{!! $course->description !!}</div>
                         <div>Продолжительность: {{ $course->duration }}</div>
+                        <div>Расписание: {{ $course->schedule }}</div>
+                        <div>Эксперт: {{ $course->expert }}</div>
                         <hr>
                         <div>Тип контента: {{ $course->type->title }}</div>
                         <div>Тэги: {{ $course->tags ?? 'Не указаны'}}</div>

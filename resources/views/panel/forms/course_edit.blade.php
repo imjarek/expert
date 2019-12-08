@@ -1,4 +1,3 @@
-course_edit.blade.
 @extends('layouts.panel')
 @section('title', 'Редактирование курса')
 @section('content')
@@ -19,7 +18,7 @@ course_edit.blade.
             </div>
             <div class="form-group">
                 <label for="description">Описание</label>
-                <input type="textarea" class="form-control" name = "description" id="description" placeholder="Описание" value="{{ old('description') ?? $course->description }}">
+                <input type="textarea" id="text-editor" class="form-control" name = "description" id="description" placeholder="Описание" value="{{ old('description') ?? $course->description }}">
             </div>
             <div class="form-group">
                 <label for="type">Тип контента</label>
@@ -58,6 +57,14 @@ course_edit.blade.
             <div class="form-group">
                 <label for="duration">Продолжительность</label>
                 <input type="input" class="form-control" name="duration" id="duration" placeholder="" value="{{ old('duration') ?? $course->duration }}">
+            </div>
+            <div class="form-group">
+                <label for="schedule">Расписание</label>
+                <input type="input" class="form-control" name="schedule" id="schedule" placeholder="" value="{{ old('schedule') ?? $course->schedule }}">
+            </div>
+            <div class="form-group">
+                <label for="expert">Эксперт</label>
+                <input type="input" class="form-control" name="expert" id="expert" placeholder="" value="{{ old('expert') ?? $course->expert }}">
             </div>
             <div class="form-group">
                 <label for="tags">Тэги</label>

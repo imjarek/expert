@@ -8,7 +8,7 @@
 </h5>
 <strong>Телефон:</strong> {{ $data['phone'] }}<br>
 <strong>Имя: </strong> {{ $data['name'] }}<br>
-<strong>Выбранный курс:</strong> {{ $data['course'] }}<br>
+{{--<strong>Выбранный курс:</strong> {{ $data['course'] }}<br>--}}
 <br>
 <p>
     Автоматическое письмо с сайта {{ env('APP_URL') }}
