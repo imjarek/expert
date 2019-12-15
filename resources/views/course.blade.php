@@ -31,9 +31,11 @@
 {{--						</div>--}}
 						<div class="course__content text-content">
 							<p><b>{{ $course->duration }}</b></p>
+							@if ($course->expert)
 							<p>
 								<b>Фитнес-эксперт: <span style="color:#7d88e4">{{ $course->expert }}</span></b>
 							</p>
+							@endif
 
 							{!! $course->description  !!}
 						</div>

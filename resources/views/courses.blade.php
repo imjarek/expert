@@ -30,13 +30,16 @@
                             </div>
                             <div class="programs__description text-center">
                                 <div class="programs__name">
-								<span>
-									Эксперт
-								</span>
+                                    @if ($course->expert)
+                                        <span>
+                                            Эксперт
+                                        </span>
+                                    @endif
                                     <p>
-                                        {{ $course->expert ?? $defaults['expert'] }}
+                                        {{ $course->expert }}
                                     </p>
                                 </div>
+
                                 <h3 class="programs__type">
                                     {{ $course->title }}
                                 </h3>
