@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'last_name', 'second_name', 'email', 'password', 'is_active', 'phone'
     ];
 
     /**
@@ -60,5 +60,14 @@ class User extends Authenticatable
     public function getCourses()
     {
         return $this->order->courses;
+    }
+
+    public function getFullNameAttribute(){
+        return "{$this->last_name} {$this->first_name} {$this->second_name}";
+    }
+
+    public function courses ()
+    {
+        return $this->belongsToMany('App\Course', 'users_courses', 'course_id', 'course_id');
     }
 }

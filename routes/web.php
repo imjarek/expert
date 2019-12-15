@@ -34,6 +34,15 @@ Route::prefix('panel')->middleware('auth')->group(function () {
         return view('panel.main');
     });
 
+    Route::get('students', 'UsersController@getStudents');
+    Route::get('admins', 'UsersController@getAdmins');
+
+    Route::get('user/create', 'UsersController@create');
+    Route::get('user/{userId}', 'UsersController@edit');
+    Route::post('user', 'UsersController@store');
+    Route::put('user/{userId}', 'UsersController@update');
+    Route::delete('user/{userId}', 'UsersController@delete');
+
     Route::get('/courses/delete/{course}', function (\App\Course $course) {
         return view('panel.forms.course_delete', ['course' => $course]);
     });
@@ -45,6 +54,7 @@ Route::prefix('panel')->middleware('auth')->group(function () {
         Route::post('{page}', 'PageController@store');
     });
 
+    Route::resource('material', 'MaterialsController');
     Route::resource('courses', 'PanelCoursesController');
 });
 

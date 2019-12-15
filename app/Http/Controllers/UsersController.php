@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Mail\UserEnrolled;
+use App\Roles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Mail;
 use Log;
 use Notification;
 use App\Notifications\UserEnrolled as UserEnrolledSms;
 use App\User;
+use App\Course;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -19,29 +23,31 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        return User::all();
     }
 
+    public function getAdmins() {
+        return view('panel.users',
+            ['users' => User::where('role_id', 1)->get()]
+        );
+    }
+
+    public function getStudents() {
+        return view('panel.users',
+            ['users' => User::where('role_id', 2)->get()]
+        );
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
-        //
+        return view('panel.forms.user_create', ['roles' => Roles::all()]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -51,8 +57,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        return User::findOrFail($id);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -62,7 +69,39 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('panel.forms.user_edit', [
+            'user' => $user,
+            'roles' => Roles::all(),
+            'courses' => $this->getAvailableCourses($user)
+        ]);
+    }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'first_name' => 'string|required',
+            'second_name' => 'string|required',
+            'last_name' => 'string|required',
+            'role_id' => 'integer|required',
+            'phone' => 'required|string|min:10|max:12',
+            'email' => 'present|email',
+            'password' => 'required|string'
+        ]);
+
+        $user = User::create($request->all());
+
+        return view('panel.forms.user_edit', [
+            'user' => $user,
+            'roles' => Roles::all()
+        ]);
     }
 
     /**
@@ -74,7 +113,31 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'first_name' => 'string|required',
+            'second_name' => 'string|required',
+            'last_name' => 'string|required',
+            'role_id' => 'integer|required',
+            'phone' => 'required|string|min:10|max:12',
+            'email' => 'present|email',
+            'course_id' => 'sometimes|array'
+        ]);
+
+        $user = User::findOrFail($id);
+
+        $params = $request->all();
+        $params['is_active'] = $params['is_active'] ?? 0;
+        $user->update($params);
+
+//        if (!empty($params['course_id'])) {
+//            $courses = $this->setAvailableCourses($user, $params['course_id']);
+//        }
+
+        return view('panel.forms.user_edit', [
+            'user' => $user,
+            'roles' => Roles::all(),
+            'courses' => $this->getAvailableCourses($user)
+        ]);
     }
 
     /**
@@ -85,7 +148,7 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail($id)->delete();
     }
 
     public function enroll(Request $request){
@@ -99,7 +162,16 @@ class UsersController extends Controller
         $data = $request->all();
         $to = User::where('email', env('MAIL_TO'))->first();
         if (!$to) {
-            $to = User::create(['email' => env('MAIL_TO'), 'name' => 'configured mail receiver', 'password' => 'asdfjkl;']);
+            $password = random_bytes(6);
+            $to = User::create([
+                'email' => env('MAIL_TO'),
+                'first_name' => 'Сайта',
+                'second_name' => 'C',
+                'last_name' => 'Посетитель',
+                'phone' => $request->get('phone'),
+                'password' => Hash::make($password),
+                'role_id' => 2
+            ]);
         }
         Mail::to($to)->send(new UserEnrolled($data));
 
@@ -110,5 +182,24 @@ class UsersController extends Controller
             Log::error('Could not send sms: ' . $e->getMessage());
         }
         return view('enrolled', ['data' => $data]);
+    }
+
+    public function getAvailableCourses(\App\User $user){
+        $courses = Course::isActive()->get();
+        $userCourses = $user->courses->pluck('id')->toArray();
+
+        return $courses->each(function ($item) use ($userCourses) {
+
+            if (in_array($item->id, $userCourses))
+                $course['available'] = true;
+        });
+    }
+
+    public function setAvailableCourses(\App\User $user, array $courseIds){
+        $courses = Course::whereIn('id', $courseIds)->get();
+
+        $courses->each(function ($course) use ($user) {
+            $user->courses()->save($course);
+        });
     }
 }
