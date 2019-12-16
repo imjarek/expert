@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CoursesType;
+use App\Material;
 use Illuminate\Http\Request;
 use App\Course;
 use Illuminate\Support\Facades\Validator;
@@ -76,7 +77,15 @@ class PanelCoursesController extends Controller
             }
             return $type;
         });
-        return view('panel.forms.course_edit', ['course' => $course, 'types' => $allTypes, 'options' => $types]);
+
+        $materials = $this->getAvailableMaterials($course);
+
+        return view('panel.forms.course_edit', [
+            'course' => $course,
+            'types' => $allTypes,
+            'options' => $types,
+            'materials' => $materials
+        ]);
     }
 
     /**
@@ -93,7 +102,7 @@ class PanelCoursesController extends Controller
             'preview' => 'sometimes|file',
             'picture' => 'sometimes|file',
             'type_id' => 'required|integer',
-            'type_ids' => 'sometimes|array'
+            'material_ids' => 'sometimes|array'
         ]);
         if ($validator->fails()) {
             return redirect('/panel/courses/' . $id . '/edit')
@@ -120,11 +129,10 @@ class PanelCoursesController extends Controller
             'is_active' => $request->get('is_active') ?? null
         ]);
         $course->update($data);
-        $course->types()->detach();
-        if ($typeIds) {
-            $course->types()->attach(array_values($typeIds));
-        }
-        return view('panel.course', ['course' => $course]);
+
+        $this->setAvailableMaterials($course, $request->get('material_ids'));
+
+        return view('panel.course', ['course' => $course, 'materials' => $this->getAvailableMaterials($course)]);
     }
 
     /**
@@ -139,5 +147,22 @@ class PanelCoursesController extends Controller
         $course->types()->detach();
         $course->delete();
         redirect('/panel/courses');
+    }
+
+    public function getAvailableMaterials(\App\Course $course){
+        $materials = Material::isActive()->get();
+        $courseMaterials = $course->materials->pluck('id')->toArray();
+
+        return $materials->each(function ($item) use ($courseMaterials) {
+
+            if (in_array($item->id, $courseMaterials, true))
+                $item->available = true;
+        });
+    }
+
+    public function setAvailableMaterials(\App\Course $course, array $materialIds){
+        $materials = Material::whereIn('id', $materialIds)->get();
+
+        $course->materials()->sync($materials);
     }
 }

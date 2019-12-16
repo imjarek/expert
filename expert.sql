@@ -16,6 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `classrooms`
+--
+
+DROP TABLE IF EXISTS `classrooms`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `classrooms` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text NOT NULL,
+  `description` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `classrooms`
+--
+
+LOCK TABLES `classrooms` WRITE;
+/*!40000 ALTER TABLE `classrooms` DISABLE KEYS */;
+/*!40000 ALTER TABLE `classrooms` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `courses`
 --
 
@@ -110,6 +134,61 @@ LOCK TABLES `courses_types_rel` WRITE;
 /*!40000 ALTER TABLE `courses_types_rel` DISABLE KEYS */;
 INSERT INTO `courses_types_rel` VALUES (3,1),(5,1),(9,1),(1,2),(4,2),(5,2),(6,2),(10,2),(9,3);
 /*!40000 ALTER TABLE `courses_types_rel` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `material_types`
+--
+
+DROP TABLE IF EXISTS `material_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `material_types` (
+  `id` tinyint(4) NOT NULL,
+  `name` varchar(24) NOT NULL,
+  `system_name` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `material_types`
+--
+
+LOCK TABLES `material_types` WRITE;
+/*!40000 ALTER TABLE `material_types` DISABLE KEYS */;
+INSERT INTO `material_types` VALUES (1,'video','video'),(2,'presentation','presentation'),(3,'pdf','pdf');
+/*!40000 ALTER TABLE `material_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `materials`
+--
+
+DROP TABLE IF EXISTS `materials`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `materials` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` mediumtext NOT NULL,
+  `type_id` tinyint(4) NOT NULL,
+  `description` mediumtext,
+  `link` mediumtext,
+  `is_active` tinyint(1) DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `materials_material_types_id_fk` (`type_id`),
+  CONSTRAINT `materials_material_types_id_fk` FOREIGN KEY (`type_id`) REFERENCES `material_types` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `materials`
+--
+
+LOCK TABLES `materials` WRITE;
+/*!40000 ALTER TABLE `materials` DISABLE KEYS */;
+INSERT INTO `materials` VALUES (1,'Инструктор групповых программ',2,'ывай2ц3к23','sdfqewf',1);
+/*!40000 ALTER TABLE `materials` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -273,16 +352,21 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `first_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `second_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `role_id` tinyint(3) unsigned NOT NULL DEFAULT '2',
+  `is_active` tinyint(1) DEFAULT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `phone` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,8 +375,36 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'configured mail receiver','sergey.ch@neklo.com',NULL,'asdfjkl;',NULL,'2019-04-27 10:50:34','2019-04-27 10:50:34'),(2,'configured mail receiver','sergey.i.che@mail.ru',NULL,'asdfjkl;',NULL,'2019-04-27 10:51:28','2019-04-27 10:51:28'),(3,'configured mail receiver','sergey.i.che@gmail.com',NULL,'asdfjkl;',NULL,'2019-04-27 10:52:06','2019-04-27 10:52:06'),(5,'Oxana','filimonova_o@list.ru',NULL,'$2y$10$BJDf46DRxiLldkZ5sMrr8OdHkmBJgD0i8YrQLkm1l2.9MGsPQJLde',NULL,'2019-06-23 15:46:54','2019-06-23 15:46:54');
+INSERT INTO `users` VALUES (5,'Оксана','Владимировна','Филимонова','$2y$10$BJDf46DRxiLldkZ5sMrr8OdHkmBJgD0i8YrQLkm1l2.9MGsPQJLde',NULL,'2019-06-23 15:46:54','2019-12-15 11:01:42',1,1,'filimonova_o@list.ru',NULL,'');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users_courses`
+--
+
+DROP TABLE IF EXISTS `users_courses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users_courses` (
+  `user_id` bigint(20) unsigned NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  `updated_by` bigint(20) unsigned NOT NULL,
+  KEY `users_courses_users_id_fk` (`user_id`),
+  KEY `users_courses___fk2` (`updated_by`),
+  CONSTRAINT `users_courses___fk2` FOREIGN KEY (`updated_by`) REFERENCES `users` (`id`),
+  CONSTRAINT `users_courses_users_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users_courses`
+--
+
+LOCK TABLES `users_courses` WRITE;
+/*!40000 ALTER TABLE `users_courses` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users_courses` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -304,4 +416,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-15 12:51:38
+-- Dump completed on 2019-12-15 18:22:04

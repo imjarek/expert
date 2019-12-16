@@ -33,7 +33,7 @@
         <th>
             Статус
         </th>
-        </thead>>
+        </thead>
     @foreach($materials as $material)
 
         <tr>

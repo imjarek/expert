@@ -1,5 +1,8 @@
 @extends('layouts.panel')
 @section('title', 'Редактирование курса')
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+<script defer src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>z
 @section('content')
 
     <div class="panel-body">
@@ -28,16 +31,11 @@
                         <option value="{{ $type->id }}" {{ $course->type->id == $type->id ? 'selected' : '' }}>{{ $type->title }}</option>
                     @endforeach
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="options">Опции</label>
-                <select name="type_ids[]" id="options" multiple>
-                    <option value="">--Выберите опции --</option>"
-                    @if (isset($options))
-                        @foreach ($options as $option)
-                            <option value="{{ $option->id }}" {{ $option->selected ? 'selected' : '' }}>{{ $option->title }}</option>
-                        @endforeach
-                    @endif
+                <label for="materials">Материалы курса</label>
+                <select class="js-select-materials-multiple" multiple name="material_ids[]" id="materials" multiple="multiple">
+                    @foreach ($materials as $material)
+                        <option value="{{ $material->id }}" {{ $material->available ? 'selected' : '' }}>{{ $material->title }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group">

@@ -56,6 +56,9 @@ Route::prefix('panel')->middleware('auth')->group(function () {
 
     Route::resource('material', 'MaterialsController');
     Route::resource('courses', 'PanelCoursesController');
+
+    Route::post('file/upload', 'FileUploadController@upload');
+    Route::post('file/remove', 'FileUploadController@remove');
 });
 
 Route::get('panel/login', array('uses' => 'Auth\LoginController@showLogin'))->name('login');;
@@ -78,8 +81,7 @@ Route::prefix('cart')->group(function (){
 Route::prefix('classroom')
     ->middleware('auth')
     ->group(function (){
-    Route::get('{orderId}', 'ClassRoomController@showClassrooms');
-    Route::get('{orderId}/{courseId}', 'ClassRoomController@showClassroom');
+    Route::get('{courseId}', 'ClassRoomController@showClassroom');
 });
 
 Route::post('enroll', 'UsersController@enroll');

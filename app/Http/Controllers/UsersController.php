@@ -129,9 +129,9 @@ class UsersController extends Controller
         $params['is_active'] = $params['is_active'] ?? 0;
         $user->update($params);
 
-//        if (!empty($params['course_id'])) {
-//            $courses = $this->setAvailableCourses($user, $params['course_id']);
-//        }
+        if (!empty($params['course_id'])) {
+            $courses = $this->setAvailableCourses($user, $params['course_id']);
+        }
 
         return view('panel.forms.user_edit', [
             'user' => $user,
@@ -190,16 +190,14 @@ class UsersController extends Controller
 
         return $courses->each(function ($item) use ($userCourses) {
 
-            if (in_array($item->id, $userCourses))
-                $course['available'] = true;
+            if (in_array($item->id, $userCourses, true))
+                $item->available = true;
         });
     }
 
     public function setAvailableCourses(\App\User $user, array $courseIds){
         $courses = Course::whereIn('id', $courseIds)->get();
 
-        $courses->each(function ($course) use ($user) {
-            $user->courses()->save($course);
-        });
+        $user->courses()->sync($courses);
     }
 }

@@ -30,7 +30,7 @@
         <th>
             Дата создания
         </th>
-        </thead>>
+        </thead>
     @foreach($users as $user)
 
         <tr>

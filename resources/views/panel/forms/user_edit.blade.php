@@ -1,5 +1,9 @@
 @extends('layouts.panel')
 @section('title', 'Редактирование пользователя')
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+<script defer src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+
 @section('content')
 
     <div class="panel-body">
@@ -39,8 +43,7 @@
 
             <div class="form-group">
                 <label for="type">Курсы доступные пользователю</label>
-                <select multiple name="course_id[]" id="course_id">
-                    <option value="">--Выберите доступные курсы --</option>
+                <select class="js-select-courses-multiple" multiple name="course_id[]" id="course_id" multiple="multiple">
                     @foreach ($courses as $course)
                         <option value="{{ $course->id }}" {{ $course->available ? 'selected' : '' }}>{{ $course->title }}</option>
                     @endforeach

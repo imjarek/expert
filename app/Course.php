@@ -11,6 +11,7 @@ class Course extends Model
         'tags', 'price', 'preview', 'picture', 'level',
         'duration', 'is_active', 'schedule', 'duration', 'expert', 'order'];
 
+    protected $appends = ['selected'];
     public function type() {
         return $this->belongsTo('App\CoursesType');
     }
@@ -19,6 +20,11 @@ class Course extends Model
     }
     public function scopeIsActive(){
         return $this->where('is_active', '=', 1);
+    }
+
+    public function materials()
+    {
+        return $this->belongsToMany('App\Material', 'course_material', 'material_id', 'course_id');
     }
 }
 

@@ -2,6 +2,10 @@
 @section('title', 'Редактирование пользователя')
 @section('content')
 
+<link href="/admin/css/jquery.filer.css" type="text/css" rel="stylesheet" />
+<link href="/admin/css/themes/jquery.filer-dragdropbox-theme.css" type="text/css" rel="stylesheet" />
+<script defer src="/admin/js/jquery.filer.min.js"></script>
+
     <div class="panel-body">
         @include('common.errors')
 
@@ -24,6 +28,11 @@
                         <option value="{{ $type->id }}" {{ $type->id == $material->type_id ? 'selected' : '' }}>{{ $type->name }}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="form-group">
+                <form method="post" enctype="multipart/form-data">
+                <input type="file" name="files[]" id="js-course-materials-filer" multiple="multiple">
+                </form>
             </div>
             <div class="form-group">
                 <label for="link">Ссылка</label>

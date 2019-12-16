@@ -17,6 +17,7 @@
     <script src="/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- Custom styles for this template-->
     <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/admin/css/panel.css" rel="stylesheet">
     <script defer src="/js/panel.js"></script>
 
 </head>
