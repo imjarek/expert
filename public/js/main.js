@@ -132,6 +132,7 @@ jQuery(document).ready(function() {
         }
       });
     }
+
     return { init:init }
   })();
 

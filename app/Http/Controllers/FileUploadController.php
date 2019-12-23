@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Material;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Utility\FileUploader as Uploader;
@@ -12,9 +13,10 @@ class FileUploadController extends Controller {
     public function __construct()
     {
         $this->uploader = new Uploader();
+        ini_set('upload_max_filesize', '512M');
     }
 
-    public function upload()
+    public function upload(Request $request)
     {
 
         $response = array();
@@ -51,8 +53,13 @@ class FileUploadController extends Controller {
     }
 
 
-    public function remove()
+    public function remove(Request $request)
     {
-        $this->uploader->removeFiles();
+        $request->validate(['filename' => 'required|string']);
+
+        $file = 'storage/media/' . $request->get('filename');
+        if(file_exists($file)){
+            unlink($file);
+        }
     }
 }

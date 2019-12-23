@@ -20,7 +20,7 @@ class FileUploader {
         'maxSize' => null,
         'extensions' => null,
         'required' => false,
-        'uploadDir' => 'storage/media',
+        'uploadDir' => 'storage/media/',
         'title' => array('auto', 10),
         'removeFiles' => true,
         'perms' => null,

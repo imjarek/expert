@@ -23,22 +23,25 @@
 <div class="album py-5 bg-light">
     <div class="container">
         @if ($courses->count())
-            <div class="row">
             @foreach ($courses as $course)
-                <div class="col-lg-4">
-                    <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                    <h2>{{ $course->title }}</h2>
-                    <p>{{ $course->description }}</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">Начать</a></p>
-                </div>
-            @endforeach
-        </div><!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
 
+                        <div style="max-width:20%; float: right";>
+                            <img src="/storage/pics/{{ $course->preview }}" style="width: 100%; height: 100%; object-fit: contain;">
+                        </div>
+                        <h2>{{ $course->title }}</h2>
+                        <p><button class="btn btn-info" href="#" role="button" onclick="toggleCut('#course-descr-{{ $course->id }}')">Описание</button></p>
+                        <p><a class="btn btn-secondary" href="/class_room/course/{{ $course->id }}" role="button">Начать</a></p>
+                        <div id="course-descr-{{ $course->id }}" class="ellipsis">{!! $course->description !!}</div>
+                    </div>
+                </div><!-- /.row -->
+                <hr/>
+            @endforeach
         @else
             <p>У Вас нет оплаченных курсов</p>
         @endif
     </div>
 </div>
-
 
 @endsection

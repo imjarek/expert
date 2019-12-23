@@ -96,6 +96,8 @@ class UsersController extends Controller
             'password' => 'required|string'
         ]);
 
+        $request->replace(['password' => Hash::make($request->password)]);
+
         $user = User::create($request->all());
 
         return view('panel.forms.user_edit', [
@@ -126,11 +128,19 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
 
         $params = $request->all();
+        if ($request->get('password')) {
+            $params['password'] = Hash::make($params['password']);
+        } else {
+            unset($params['password']);
+        }
+
         $params['is_active'] = $params['is_active'] ?? 0;
         $user->update($params);
 
         if (!empty($params['course_id'])) {
             $courses = $this->setAvailableCourses($user, $params['course_id']);
+        } else {
+            $user->courses()->detach();
         }
 
         return view('panel.forms.user_edit', [

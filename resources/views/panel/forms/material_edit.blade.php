@@ -29,11 +29,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="form-group">
-                <form method="post" enctype="multipart/form-data">
-                <input type="file" name="files[]" id="js-course-materials-filer" multiple="multiple">
-                </form>
-            </div>
+
             <div class="form-group">
                 <label for="link">Ссылка</label>
                 <input type="input" class="form-control" name = "link" id="link" placeholder="Ссылка" value="{{ $material->link ?? old('link') }}">
@@ -51,7 +47,15 @@
                     </button>
                 </div>
             </div>
+            <input type="hidden" name="material_id" value="{{ $material->id }}">
         </form>
+        <hr/>
+        Прикрепить файл
+        <div class="form-group">
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="files[]" id="js-course-materials-filer" multiple="multiple">
+            </form>
+        </div>
     </div>
 
 @endsection

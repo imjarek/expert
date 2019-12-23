@@ -210,7 +210,8 @@
 <div class="popup-modal mfp-hide form-popup" tabindex="-1" id="login-popup">
     <div class="close close-popup"></div>
     <div class="wrapper">
-        <form class="form-signin" action="/" method="get">
+        <form class="form-signin" method="POST" action="/panel/login">
+            @csrf
             <h2 class="form-signin-heading text-center">
                 Вход в личный кабинет
             </h2>

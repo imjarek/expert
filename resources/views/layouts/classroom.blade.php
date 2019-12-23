@@ -11,6 +11,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/classroom/classroom.css" rel="stylesheet">
+    <script src="/js/classroom.js"></script>
     <link href="/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 

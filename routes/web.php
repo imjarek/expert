@@ -78,10 +78,11 @@ Route::prefix('cart')->group(function (){
     Route::post('add', 'CartController@add');
 });
 
-Route::prefix('classroom')
+Route::prefix('class_room')
     ->middleware('auth')
     ->group(function (){
-    Route::get('{courseId}', 'ClassRoomController@showClassroom');
+        Route::get('/', 'ClassRoomController@showClassroom');
+        Route::get('/course/{id}', 'ClassRoomController@showCourse');
 });
 
 Route::post('enroll', 'UsersController@enroll');

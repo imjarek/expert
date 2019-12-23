@@ -91,7 +91,10 @@ $(document).ready(function() {
               type: 'POST',
               enctype: 'multipart/form-data',
               synchron: true,
-              beforeSend: function(){},
+              beforeSend: function(obj){
+                  var materialId = $('input[name=material_id]').val();
+                  this.data = {material_id: materialId}
+              },
               success: function(data, itemEl, listEl, boxEl, newInputEl, inputEl, id){
                   var parent = itemEl.find(".jFiler-jProgressBar").parent(),
                       new_file_name = data.result,
@@ -102,6 +105,8 @@ $(document).ready(function() {
                   itemEl.find(".jFiler-jProgressBar").fadeOut("slow", function(){
                       $("<div class=\"jFiler-item-others text-success\"><i class=\"icon-jfi-check-circle\"></i> Success</div>").hide().appendTo(parent).fadeIn("slow");
                   });
+
+                  $('input[name="material-file-name]').val(new_file_name);
               },
               error: function(el){
                   var parent = el.find(".jFiler-jProgressBar").parent();
@@ -128,7 +133,7 @@ $(document).ready(function() {
               var filerKit = inputEl.prop("jFiler"),
                   file_name = filerKit.files_list[id].name;
 
-              $.post('/panel/file/remove', {file: file_name});
+              $.post('/panel/file/remove', {filename: file_name});
           },
           onEmpty: null,
           options: null,

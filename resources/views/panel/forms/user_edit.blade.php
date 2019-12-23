@@ -27,9 +27,11 @@
             <div class="form-group">
                 <label for="type">Роль</label>
                 <select name="role_id" id="role_id">
-                    @foreach ($roles as $role)
-                        <option value="{{ $role->id }}" {{ $user->role_id == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
-                    @endforeach
+                    @if(isset($courses))
+                        @foreach ($roles as $role)
+                            <option value="{{ $role->id }}" {{ $user->role_id == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
+                        @endforeach
+                    @endif
                 </select>
             </div>
             <div class="form-group">
@@ -49,7 +51,10 @@
                     @endforeach
                 </select>
             </div>
-
+            <div class="form-group">
+                <label for="email">Пароль (только если нужно поменять текущий пароль)</label>
+                <input type="input" class="form-control" name = "password" id="password" placeholder="Пароль" value="{{ old('password') }}">
+            </div>
             <div class="form-check form-check-inline">
                 <label class="form-check-label" for="is_active">Включен</label>
                 <input type="checkbox" class="form-check-input form-control-lg"
