@@ -20,7 +20,7 @@ class FileUploader {
         'maxSize' => null,
         'extensions' => null,
         'required' => false,
-        'uploadDir' => 'storage/media/',
+        'uploadDir' => '/www/expert/storage/media/materials/',
         'title' => array('auto', 10),
         'removeFiles' => true,
         'perms' => null,
@@ -79,7 +79,6 @@ class FileUploader {
     public function upload($field, $options = null){
         $this->data = $this->cache_data;
 
-        $options['uploadDir'] = storage_path('media');
         return $this->initialize($field, $options);
     }
 
@@ -270,7 +269,7 @@ class FileUploader {
      * Upload/Download files to server
      * @return boolean
      */
-    private function uploadFile($source, $destination){
+        private function uploadFile($source, $destination){
         if($this->field['Field_Type'] == 'input'){
             return @move_uploaded_file($source, $destination);
         }elseif($this->field['Field_Type'] == 'link'){

@@ -31,8 +31,8 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         @if ($material->link)
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Смотреть</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Скачать</button>
+                                            <a href="/class_room/view/{{ $material->id }}" class="btn btn-sm btn-outline-secondary">Смотреть</a>
+                                            <a href="/class_room/material/{{ $material->id }}" class="btn btn-sm btn-outline-secondary">Скачать</a>
                                         @endif
                                         </div>
                                         <small class="text-muted">{{ $material->duration }}</small>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Material;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -36,5 +37,23 @@ class ClassRoomController extends Controller
         }
 
         return view('classroom.course', ['course' => $course]);
+    }
+
+    public function viewContent($id)
+    {
+
+        $material = Material::findOrFail($id);
+
+        switch ($material->type->name) {
+
+            case 'presentation':
+                return redirect('/class_room/view#/storage/'. $material->link);
+                break;
+            case 'video':
+            default:
+                return view('classroom.videoplayer', ['material' => $material]);
+                break;
+        }
+
     }
 }

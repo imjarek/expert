@@ -30,6 +30,7 @@
                     <ul class="list-unstyled">
                         <p class="text-white">Телефон: {{ env("SMS_TO") }}</p>
                         <li><a href="/pages/contacts" class="text-white">Контакты</a></li>
+                        <li><a href="/panel/logout" class="text-white">Выйти</a></li>
                     </ul>
                 </div>
             </div>

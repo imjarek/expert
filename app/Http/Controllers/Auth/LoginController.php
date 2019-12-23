@@ -39,10 +39,10 @@ class LoginController extends Controller
                 return '/panel';
                 break;
             case 'student':
-                return '/classroom';
+                return '/class_room';
                 break;
             default:
-                return '/classroom';
+                return '/class_room';
                 break;
         }
     }
@@ -54,7 +54,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('panel/logout');
+        //$this->middleware('guest')->except('panel/logout');
     }
 
     public function showLogin()

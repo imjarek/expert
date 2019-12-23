@@ -32,7 +32,7 @@
                         </div>
                         <h2>{{ $course->title }}</h2>
                         <p><button class="btn btn-info" href="#" role="button" onclick="toggleCut('#course-descr-{{ $course->id }}')">Описание</button></p>
-                        <p><a class="btn btn-secondary" href="/class_room/course/{{ $course->id }}" role="button">Начать</a></p>
+                        <p><a class="btn btn-secondary" href="/class_room/course/{{ $course->id }}" role="button">Перейти</a></p>
                         <div id="course-descr-{{ $course->id }}" class="ellipsis">{!! $course->description !!}</div>
                     </div>
                 </div><!-- /.row -->

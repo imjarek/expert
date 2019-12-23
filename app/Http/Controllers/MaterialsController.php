@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Material;
 use App\MaterialType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 
 class MaterialsController extends Controller
 {
@@ -108,5 +110,22 @@ class MaterialsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getFile($id) {
+
+        $material = Material::findOrFail($id);
+
+
+        if (!$material->link) {
+            throw new \Exception("Файл не найден");
+        }
+
+        $path = "public/" . $material->link;
+        $mimetype = Storage::disk('local')->mimeType($path);
+        $headers = array('Content-Type' => $mimetype);
+        $extension = explode('.', $material->link)[1];
+
+        return Storage::disk('local')->download($path, $material->title. '. ' . $extension, $headers);
     }
 }

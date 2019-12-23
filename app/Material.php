@@ -14,4 +14,9 @@ class Material extends Model
     {
         return $this->where('is_active', 1);
     }
+
+    public function type()
+    {
+        return $this->belongsTo('App\MaterialType', 'type_id', 'id');
+    }
 }

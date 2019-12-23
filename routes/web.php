@@ -31,7 +31,7 @@ Route::get('pages/{page}', 'PageController@show');
 
 Route::prefix('panel')->middleware('auth')->group(function () {
     Route::get('/', function () {
-        return view('panel.main');
+        return redirect('/panel/courses');
     });
 
     Route::get('students', 'UsersController@getStudents');
@@ -55,6 +55,7 @@ Route::prefix('panel')->middleware('auth')->group(function () {
     });
 
     Route::resource('material', 'MaterialsController');
+
     Route::resource('courses', 'PanelCoursesController');
 
     Route::post('file/upload', 'FileUploadController@upload');
@@ -83,6 +84,11 @@ Route::prefix('class_room')
     ->group(function (){
         Route::get('/', 'ClassRoomController@showClassroom');
         Route::get('/course/{id}', 'ClassRoomController@showCourse');
+        Route::get('material/{id}', 'MaterialsController@getFile');
+        Route::get('view/{id}', 'ClassRoomController@viewContent');
+        Route::get('view', function () {
+            return view('classroom.viewer');
+        });
 });
 
 Route::post('enroll', 'UsersController@enroll');

@@ -8,4 +8,5 @@ composer.lock
 .idea
 .env
 package-lock.json
-public/media
+public/media/
+storage/app/public/media/

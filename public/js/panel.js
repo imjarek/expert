@@ -97,7 +97,7 @@ $(document).ready(function() {
               },
               success: function(data, itemEl, listEl, boxEl, newInputEl, inputEl, id){
                   var parent = itemEl.find(".jFiler-jProgressBar").parent(),
-                      new_file_name = data.result,
+                      new_file_name = data.filename,
                       filerKit = inputEl.prop("jFiler");
 
                   filerKit.files_list[id].name = new_file_name;
@@ -106,7 +106,9 @@ $(document).ready(function() {
                       $("<div class=\"jFiler-item-others text-success\"><i class=\"icon-jfi-check-circle\"></i> Success</div>").hide().appendTo(parent).fadeIn("slow");
                   });
 
-                  $('input[name="material-file-name]').val(new_file_name);
+                  var link = "new_file_name";
+                  $('#material_link').val(new_file_name);
+                  $('#material_link_external').prop( "checked", false );
               },
               error: function(el){
                   var parent = el.find(".jFiler-jProgressBar").parent();

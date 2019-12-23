@@ -32,7 +32,9 @@
 
             <div class="form-group">
                 <label for="link">Ссылка</label>
-                <input type="input" class="form-control" name = "link" id="link" placeholder="Ссылка" value="{{ $material->link ?? old('link') }}">
+                <input type="input" class="form-control" name = "link" id="material_link" placeholder="Ссылка" value="{{ $material->link ?? old('link') }}">
+                <label for="link_external">Внешняя ссылка?</label>
+                <input type="checkbox" class="check_box" name = "material_link_external" id="link_external" placeholder="Ссылка" value="{{ $material->link_external ?? old('link_external') }}">
             </div>
             <div class="form-check form-check-inline">
                 <label class="form-check-label" for="is_active">Активен</label>
