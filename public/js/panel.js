@@ -1,4 +1,27 @@
 $(document).ready(function() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    if ($('.save-setting-btn')) {
+        $('.save-setting-btn').click(function() {
+
+            var el = $(this).parent().parent().find('textarea'),
+                value = el.val(),
+                name = el.attr('name');
+            $(this).attr('disabled', true);
+            $.ajax({
+                type: "POST",
+                url: 'settings/' + name,
+                data: {value: value},
+                success: function () {
+                    $(this).attr('disabled', false);
+                }
+            });
+        });
+    }
 
     if ($('.js-select-courses-multiple').length > 0) {
       $('.js-select-courses-multiple').select2();
