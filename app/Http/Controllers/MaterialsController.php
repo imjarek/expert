@@ -126,6 +126,6 @@ class MaterialsController extends Controller
         $headers = array('Content-Type' => $mimetype);
         $extension = explode('.', $material->link)[1];
 
-        return Storage::disk('local')->download($path, $material->title. '. ' . $extension, $headers);
+        return Storage::disk('local')->download($path, $material->title . '.' . $extension, $headers);
     }
 }

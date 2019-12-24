@@ -239,7 +239,7 @@
         </div>
         <div class="form-control">
             <input type="phone" class="" name="phone" placeholder="79009000090" required=""/>
-            <div class="g-recaptcha" data-sitekey="6LcQuMkUAAAAAGFCreb-TAQeED6p6_XeVOUqtiIZ"></div>
+{{--            <div class="g-recaptcha" data-sitekey="6LcQuMkUAAAAAGFCreb-TAQeED6p6_XeVOUqtiIZ"></div>--}}
         </div>
         <button class="btn" type="submit">Записаться!</button>
     </form>
@@ -251,7 +251,7 @@
 <script src="/libs/popup/jquery.magnific-popup.min.js"></script>
 
 <script src="/js/common.js"></script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{{--<script src="https://www.google.com/recaptcha/api.js" async defer></script>--}}
 </body>
 </html>
 
