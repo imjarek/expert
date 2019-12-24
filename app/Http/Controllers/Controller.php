@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Setting;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -19,7 +20,8 @@ class Controller extends BaseController
             'schedule' => env('DEFAULT_SCHEDULE'),
             'expert' => env('DEFAULT_EXPERT')
         );
-        return view('main', ['defaults' => $defaults, 'courses' => $data['courses']]);
+
+        return view('main', ['defaults' => $defaults, 'settings'=> $this->getSettings(), 'courses' => $data['courses']]);
     }
     public function imageUpload()
     {
@@ -37,5 +39,14 @@ class Controller extends BaseController
 
         request()->file->move(public_path('images/uploads'), $imageName);
         return "/images/uploads/$imageName";
+    }
+
+    public function getSettings()
+    {
+        $settings = [];
+        foreach (Setting::all() as $setting){
+            $settings[$setting->system_name] = $setting['value'];
+        }
+        return $settings;
     }
 }
