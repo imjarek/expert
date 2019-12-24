@@ -2,7 +2,8 @@
 @extends('layouts.expert', ['isMain' => true])
 
 @section('title', 'Курсы подготовки фитнес-тренеров')
-
+@section('description', $settings['description'])
+@section('keywords', $settings['keywords'])
 @section('sidebar')
 @parent
 

@@ -7,7 +7,8 @@
     <!-- <base href="/"> -->
 
     <title>Эксперт</title>
-    <meta name="description" content="">
+    <meta name="description" content="@yield('description')">
+    <meta name="keywords" content="@yield('keywords')">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -216,7 +217,7 @@
                 Вход в личный кабинет
             </h2>
             <div class="form-control">
-                <input type="text" name="username" placeholder="Логин" required=""/>
+                <input type="text" name="email" placeholder="Логин" required=""/>
             </div>
             <div class="form-control">
                 <input type="password" class="" name="password" placeholder="Пароль" required=""/>
@@ -234,22 +235,12 @@
             Запись на курс
         </h2>
         <div class="form-control">
-            <input type="text" name="name" placeholder="Ваше имя" required=""/>
+            <input type="text" name="name" placeholder="Алина" required=""/>
         </div>
         <div class="form-control">
-            <input type="phone" class="" name="phone" placeholder="Ваш телефон" required=""/>
+            <input type="phone" class="" name="phone" placeholder="79009000090" required=""/>
+            <div class="g-recaptcha" data-sitekey="6LcQuMkUAAAAAGFCreb-TAQeED6p6_XeVOUqtiIZ"></div>
         </div>
-{{--        <select class="custom-select" name="course">--}}
-{{--            <option selected>--- Выберите курс ---</option>--}}
-{{--            <option>Детский фитнес (дети 3-6 лет)</option>--}}
-{{--            <option>Детский фитнес (дети 7-10 лет)</option>--}}
-{{--            <option>Фитнес в перинатальном периоде</option>--}}
-{{--            <option>Фитнес-йога</option>--}}
-{{--            <option>Базовая аэробика / степ" (начальный уровень)</option>--}}
-{{--            <option>Силовой / функциональный тренинг</option>--}}
-{{--            <option>Стретчинг</option>--}}
-{{--            <option>Диагностика физического состояния в фитнесе</option>--}}
-{{--        </select>--}}
         <button class="btn" type="submit">Записаться!</button>
     </form>
 </div>
@@ -260,6 +251,7 @@
 <script src="/libs/popup/jquery.magnific-popup.min.js"></script>
 
 <script src="/js/common.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
 

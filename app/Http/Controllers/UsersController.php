@@ -165,33 +165,48 @@ class UsersController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'phone' => 'required',
-//            'course' => 'required'
+            'phone' => 'required|string|min:9|max:12',
         ]);
 
-        $data = $request->all();
         $to = User::where('email', env('MAIL_TO'))->first();
-        if (!$to) {
+        $user = User::where('phone', $request->get('phone'))->first();
+
+        if (!$user) {
             $password = random_bytes(6);
-            $to = User::create([
-                'email' => env('MAIL_TO'),
-                'first_name' => 'Сайта',
-                'second_name' => 'C',
-                'last_name' => 'Посетитель',
+            $user = User::create([
+                'email' => 'fakeemail'. substr(uniqid(), 6, 12)  .'@list.ru',
+                'first_name' => $request->get('name'),
+                'second_name' => 'Без имени',
+                'last_name' => 'Авторегистрация',
                 'phone' => $request->get('phone'),
                 'password' => Hash::make($password),
                 'role_id' => 2
             ]);
         }
-        Mail::to($to)->send(new UserEnrolled($data));
+
+        $request->merge(['user_id' => $user->id]);
+
+        if (!$to) {
+            $password = random_bytes(6);
+            $to = User::create([
+                'email' => env('MAIL_TO'),
+                'first_name' => 'Получатель',
+                'second_name' => 'Авто',
+                'last_name' => 'Почты',
+                'phone' => $request->get('phone'),
+                'password' => Hash::make($password),
+                'role_id' => 2
+            ]);
+        }
+        Mail::to($to)->send(new UserEnrolled($request->all()));
 
         try {
-            Notification::route('twilio', env('SMS_TO'))
-                ->notify(new UserEnrolledSms($data));
+            Notification::route('twilio', env('PHONE_TO'))
+                ->notify(new UserEnrolledSms($request->all()));
         } catch (\Exception $e) {
             Log::error('Could not send sms: ' . $e->getMessage());
         }
-        return view('enrolled', ['data' => $data]);
+        return view('enrolled', ['data' => $request->all()]);
     }
 
     public function getAvailableCourses(\App\User $user){
