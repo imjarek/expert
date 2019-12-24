@@ -28,7 +28,6 @@
             preload="auto"
             width="640"
             height="264"
-            poster="MY_VIDEO_POSTER.jpg"
             data-setup="{}"
     >
         <source src="/storage/{{ $material->link }}" type="video/mp4" />

@@ -31,7 +31,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         @if ($material->link)
                                         <div class="btn-group">
-                                            <a href="/class_room/view/{{ $material->id }}" class="btn btn-sm btn-outline-secondary">Смотреть</a>
+                                            <a href="/class_room/view/{{ $material->id }}" class="btn btn-sm btn-outline-secondary" target="_blank">Смотреть</a>
                                             <a href="/class_room/material/{{ $material->id }}" class="btn btn-sm btn-outline-secondary">Скачать</a>
                                         @endif
                                         </div>

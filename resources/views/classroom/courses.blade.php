@@ -12,11 +12,7 @@
 <section class="jumbotron text-center" style="height: 15%">
     <div class="container">
         <h1 class="jumbotron-heading">Ваши курсы</h1>
-        <p class="lead text-muted">Выберите текущий курс</p>
-        <p>
-            <a href="#" class="btn btn-primary my-2">Продолжить последний</a>
-            <a href="#" class="btn btn-secondary my-2">Начать сначала</a>
-        </p>
+        <p class="lead text-muted">Скачайте или просмотрите курс</p>
     </div>
 </section>
 

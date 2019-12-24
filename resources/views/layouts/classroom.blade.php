@@ -28,8 +28,8 @@
                 <div class="col-sm-4 offset-md-1 py-4">
                     <h4 class="text-white">Есть вопросы? Свяжитесь с нами</h4>
                     <ul class="list-unstyled">
-                        <p class="text-white">Телефон: {{ env("SMS_TO") }}</p>
-                        <li><a href="/pages/contacts" class="text-white">Контакты</a></li>
+                        <p class="text-white">Телефон: {{ env("PHONE_TO") }}</p>
+                        <li><a href="/pages/contact" class="text-white">Контакты</a></li>
                         <li><a href="/panel/logout" class="text-white">Выйти</a></li>
                     </ul>
                 </div>
