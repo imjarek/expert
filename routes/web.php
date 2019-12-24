@@ -60,6 +60,9 @@ Route::prefix('panel')->middleware('auth')->group(function () {
 
     Route::post('file/upload', 'FileUploadController@upload');
     Route::post('file/remove', 'FileUploadController@remove');
+
+    Route::get('settings', 'SettingsController@index');
+    Route::post('settings/{system_name}', 'SettingsController@update');
 });
 
 Route::get('panel/login', array('uses' => 'Auth\LoginController@showLogin'))->name('login');;
@@ -90,6 +93,7 @@ Route::prefix('class_room')
             return view('classroom.viewer');
         });
 });
+
 
 Route::post('enroll', 'UsersController@enroll');
 Route::get('test', 'TestController@test');

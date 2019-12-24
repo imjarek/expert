@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     if ($('.js-select-courses-multiple').length > 0) {
       $('.js-select-courses-multiple').select2();
     }
