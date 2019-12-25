@@ -54,6 +54,15 @@
                         <div>Эксперт: {{ $course->expert }}</div>
                         <hr>
                         <div>Тип контента: {{ $course->type->title }}</div>
+                        @if ($course->materials->count() > 0)
+                            <div>
+                            @foreach($course->materials as $material)
+                                <a href="/panel/material/{{ $material->id }}">{{ $material->title }}</a><br>
+                            @endforeach
+                             </div>
+                        @else
+                            <p><strong>Материалы недоступны</strong></p>
+                        @endif
                         <div>Тэги: {{ $course->tags ?? 'Не указаны'}}</div>
                         <div>Цена: {{ $course->price }}</div>
                     </div>

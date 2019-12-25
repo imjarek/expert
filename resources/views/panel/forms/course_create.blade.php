@@ -12,15 +12,15 @@
 
             <div class="form-group">
                 <label for="title">Название курса</label>
-                <input type="input" class="form-control" name="title" id="title" placeholder="Заголовок">
+                <input type="input" class="form-control" name="title" id="title" placeholder="Заголовок" value="{{ old('title') }}">
             </div>
             <div class="form-group">
                 <label for="announcement">Анонс</label>
-                <input type="input" class="form-control" name="announcement" id="announcement" placeholder="Анонс">
+                <input type="input" class="form-control" name="announcement" id="announcement" placeholder="Анонс" value="{{ old('announcement') }}">
             </div>
             <div class="form-group">
                 <label for="description">Описание</label>
-                <input type="textarea" id="text-editor" class="form-control" name="description" id="description" placeholder="Описание">
+                <input type="textarea" id="text-editor" class="form-control" name="description" id="description" placeholder="Описание" value="{{ old('description') }}">
             </div>
             <div class="form-group">
                 <label for="type">Тип</label>
