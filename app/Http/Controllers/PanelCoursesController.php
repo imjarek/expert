@@ -45,7 +45,11 @@ class PanelCoursesController extends Controller
 
         $course = Course::create($request->all());
 
-        return view('panel.forms.course_edit', ['course' => $course, 'types' => CoursesType::all()]);
+        return view('panel.forms.course_edit', [
+            'course' => $course,
+            'types' => CoursesType::all(),
+            'materials' => $this->getAvailableMaterials($course)
+        ]);
     }
 
     /**
@@ -130,7 +134,9 @@ class PanelCoursesController extends Controller
         ]);
         $course->update($data);
 
-        $this->setAvailableMaterials($course, $request->get('material_ids'));
+        if (!empty($request->get('material_ids'))) {
+            $this->setAvailableMaterials($course, $request->get('material_ids'));
+        }
 
         return view('panel.course', ['course' => $course, 'materials' => $this->getAvailableMaterials($course)]);
     }
@@ -151,6 +157,10 @@ class PanelCoursesController extends Controller
 
     public function getAvailableMaterials(\App\Course $course){
         $materials = Material::isActive()->get();
+
+        if (!$course) {
+            return $materials;
+        }
         $courseMaterials = $course->materials->pluck('id')->toArray();
 
         return $materials->each(function ($item) use ($courseMaterials) {
