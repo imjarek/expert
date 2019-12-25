@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-md-7 py-4">
-                    <h4 class="text-white">Эксперт</h4>
+                    <h4 class="text-white">{{ $user->fullname }}</h4>
                     <p class="text-muted">Вы находитесь в Вашем личном учебном классе. Здесь располагаются Ваши учебные материалы</p>
                 </div>
                 <div class="col-sm-4 offset-md-1 py-4">

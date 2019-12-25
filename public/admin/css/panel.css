@@ -9,3 +9,23 @@
     margin:0;
     width: 800px;
 }
+
+
+img.coursePreview {
+    max-width: 90%;
+    max-height: 90%
+}
+
+div.coursePreviewContainer {
+    margin: 15px;
+    padding: 15px;
+    border: solid;
+    border-width: 1px;
+    border-color: #8d9496;
+    width: 300px;
+    height: 300px
+}
+p.coursePreviewContainer {
+    margin: 10px;
+    padding: 10px;
+}

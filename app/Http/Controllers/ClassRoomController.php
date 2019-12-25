@@ -23,7 +23,7 @@ class ClassRoomController extends Controller
             return Redirect::to('/main')->withErrors(['У Вас пока нет доступа к курсам. Отправьте заявку или свяжитесь с администраторм!']);
         }
         $courses = $user->courses;
-        return view('classroom.courses', ['courses' => $courses]);
+        return view('classroom.courses', ['user' => $user, 'courses' => $courses]);
     }
 
     public function showCourse($id)
@@ -36,7 +36,7 @@ class ClassRoomController extends Controller
             return Redirect::to('/main')->withErrors(['У Вас пока нет доступа к курсам. Отправьте заявку или свяжитесь с администраторм!']);
         }
 
-        return view('classroom.course', ['course' => $course]);
+        return view('classroom.course', ['user' => $user, 'course' => $course]);
     }
 
     public function viewContent($id)

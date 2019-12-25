@@ -17,6 +17,10 @@
                 <input type="input" class="form-control" name="title" id="title" placeholder="Название" value="{{ $material->title ?? old('title') }}">
             </div>
             <div class="form-group">
+                <label for="file_name">Имя скачиваемого файла (латиницей)</label>
+                <input type="input" class="form-control" name="file_name" id="file_name" placeholder="файл.pdf" value="{{ $material->file_name ?? old('file_name') }}">
+            </div>
+            <div class="form-group">
                 <label for="description">Описание</label>
                 <input type="input" class="form-control" name = "description" id="" placeholder="Описание" value="{{ $material->description ?? old('description') }}">
             </div>
@@ -45,7 +49,7 @@
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
                     <button type="submit" class="btn btn-default">
-                        <i class="fa fa-plus"></i> Обновить материал
+                        <button class="btn btn-info"><i class="fa fa-save"></i> Обновить материал</button>
                     </button>
                 </div>
             </div>

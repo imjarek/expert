@@ -41,7 +41,7 @@ class MaterialsController extends Controller
         $request->validate([
             'title' => 'string|required',
             'type_id' => 'integer|required|not_in:0',
-            'is_active' => 'required|boolean'
+            'is_active' => 'sometimes|boolean'
         ]);
 
         $material = Material::create($request->all());
@@ -126,6 +126,6 @@ class MaterialsController extends Controller
         $headers = array('Content-Type' => $mimetype);
         $extension = explode('.', $material->link)[1];
 
-        return Storage::disk('local')->download($path, $material->title . '.' . $extension, $headers);
+        return Storage::disk('local')->download($path, $material->file_name . '.' . $extension, $headers);
     }
 }

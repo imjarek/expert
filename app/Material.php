@@ -8,7 +8,7 @@ class Material extends Model
 {
     public $timestamps = false;
     protected $appends = ['available'];
-    protected $fillable = ['title', 'description', 'type_id', 'is_active', 'link'];
+    protected $fillable = ['title', 'description', 'type_id', 'is_active', 'link', 'file_name'];
 
     public function scopeIsActive()
     {

@@ -12,10 +12,12 @@
 
 @section('content')
     <div class="row">
-        <div class="col-sm-offset-3 col-sm-6">
-            <button class="btn btn-default">
-                <i class="fa fa-edit"></i> <a href="/panel/courses/{{ $course->id }}/edit">Редактировать</a>
-            </button>
+        <div class="col-md-4">
+            <div class="col-sm-offset-3 col-sm-6">
+                <button class="btn btn-default">
+                    <i class="fa fa-edit"></i> <a href="/panel/courses/{{ $course->id }}/edit">Редактировать</a>
+                </button>
+            </div>
         </div>
     </div>
 

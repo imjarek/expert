@@ -2,7 +2,7 @@
 @section('title', 'Редактирование курса')
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
-<script defer src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>z
+<script defer src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
 @section('content')
 
     <div class="panel-body">
@@ -41,7 +41,13 @@
             <div class="form-group">
                 <label for="preview">Превью</label>
                 <input type="file" accept="image/*" class="form-control" name="preview" id="preview" placeholder="Превью" value="{{ old('preview') ?? $course->preview }}">
-                <p>Текущая: {{ $course->preview }}</p>
+                @if (!empty($course->preview))
+                    <div class="coursePreviewContainer">
+                        <img class="coursePreview" src="{{ env('APP_URL') }}/storage/pics/{{ $course->preview }}">
+                        <p>{{ $course->preview }}</p>
+                    </div>
+                @endif
+
             </div>
             <div class="form-group">
                 <label for="picture">Картинка</label>
@@ -86,7 +92,7 @@
             <!-- Add Task Button -->
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
-                    <button type="submit" class="btn btn-default">
+                    <button type="submit" class="btn btn-info">
                         <i class="fa fa-save"></i> Сохранить курс
                     </button>
                 </div>
