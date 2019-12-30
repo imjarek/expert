@@ -25,7 +25,7 @@
 			</h1>
 			<div class="course__wrapper">
 				<div class="row">
-					<div class="col-8">
+					<div class="col-md-8 col-sm-12">
 {{--						<div class="course__img">--}}
 {{--							<img src="/img/course.jpg" class="img-responsive" alt="">--}}
 {{--						</div>--}}
@@ -40,7 +40,7 @@
 							{!! $course->description  !!}
 						</div>
 					</div>
-					<div class="col-4">
+					<div class="col-md-4 col-sm-12">
 
 						<div class="widget">
 

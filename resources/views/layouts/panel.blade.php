@@ -108,7 +108,7 @@
             <div id="collapse4" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Основные</h6>
-                    <a class="collapse-item" href="settings">Настройки системы</a>
+                    <a class="collapse-item" href="/panel/settings">Настройки системы</a>
                 </div>
             </div>
         </li>
@@ -134,7 +134,7 @@
                     <a class="collapse-item" href="/panel/admins">Администраторы</a>
                     <div class="collapse-divider"></div>
                     <h6 class="collapse-header">Дополнительные</h6>
-                    <a class="collapse-item" href="panel/info">Справочная информация</a>
+                    <a class="collapse-item" href="/panel/info">Справочная информация</a>
                 </div>
             </div>
         </li>
