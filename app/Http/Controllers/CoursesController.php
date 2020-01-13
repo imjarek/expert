@@ -57,8 +57,8 @@ class CoursesController extends Controller
     {
         $course = Course::find($id);
 
-        if (!$course) {
-            return view('course');
+        if (!$course || !$course->is_active) {
+            return view('pages.404');
         }
         $items = session('items');
 

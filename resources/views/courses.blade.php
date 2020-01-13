@@ -15,11 +15,11 @@
 
     <div class="container programs__wrapper active" data-content="0">
         <div class="row">
-    @foreach($courses as $course)
+            @foreach($courses as $course)
 
                 <!-- program item -->
                     <div class="col-12 col-md-6 col-lg-4">
-                        <a href="/courses/{{ $course->id }}" class="programs__item" style="background-image: url(storage/pics/{{ $course->preview }});">
+                        <a href="/courses/{{ $course->id }}" class="programs__item" style="background-image: url(storage/pics/{{ $course->preview }}); background-size:contain">
                             <div class="programs__top">
                                 <div class="programs__price">
                                     {{ $course->price }} руб
@@ -48,7 +48,7 @@
                     </div>
                     <!-- end program item -->
 
-    @endforeach
+            @endforeach
         </div>
     </div>
 </section>

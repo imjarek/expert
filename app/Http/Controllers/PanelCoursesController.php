@@ -115,11 +115,11 @@ class PanelCoursesController extends Controller
         }
 
         if ($request->file('preview')) {
-            $previewFileName = uniqid() . '_' . $request->file('preview')->getClientOriginalName();
+            $previewFileName = uniqid();
             $request->file('preview')->storeAs('pics', $previewFileName);
         }
         if ($request->file('picture')) {
-            $pictureFileName = uniqid() . '_' . $request->file('picture')->getClientOriginalName();
+            $pictureFileName = uniqid();
             $request->file('picture')->storeAs('pics', $pictureFileName);
         }
         $course = Course::find($id);

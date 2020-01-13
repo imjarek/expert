@@ -66,13 +66,12 @@
                         <div>Тэги: {{ $course->tags ?? 'Не указаны'}}</div>
                         <div>Цена: {{ $course->price }}</div>
                     </div>
-                    <div class="mb-4">
-                        <div class="course-card-preview">
-                            @if (!empty($course->preview))
-                                <img src="{{ env('APP_URL') }}/storage/pics/{{ $course->preview }}">
-                            @endif
-                        </div>
+                    <div class="course-card-preview">
+                        @if (!empty($course->preview))
+                            <img class="img-thumbnail" src="{{ env('APP_URL') }}/storage/pics/{{ $course->preview }}">
+                        @endif
                     </div>
+
                 </div>
              </div>
         </div>
