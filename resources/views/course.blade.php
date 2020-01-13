@@ -26,9 +26,9 @@
 			<div class="course__wrapper">
 				<div class="row">
 					<div class="col-md-8 col-sm-12">
-{{--						<div class="course__img">--}}
-{{--							<img src="/img/course.jpg" class="img-responsive" alt="">--}}
-{{--						</div>--}}
+						@if (!empty($course->picture))
+							<img class="img-responsive" src="{{ env('APP_URL') }}/storage/pics/{{ $course->picture }}">
+						@endif
 						<div class="course__content text-content">
 							<p><b>{{ $course->duration }}</b></p>
 							@if ($course->expert)
@@ -39,6 +39,7 @@
 
 							{!! $course->description  !!}
 						</div>
+
 					</div>
 					<div class="col-md-4 col-sm-12">
 
@@ -64,10 +65,9 @@
 									2020 г.
 								</div>
 							</div>
-
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>

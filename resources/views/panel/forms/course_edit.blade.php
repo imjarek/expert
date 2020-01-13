@@ -52,6 +52,9 @@
             <div class="form-group">
                 <label for="picture">Картинка</label>
                 <input type="file" class="form-control" name="picture" id="picture" placeholder="Картинка">
+                <div class="coursePreviewContainer">
+                    <img class="coursePreview" src="{{ env('APP_URL') }}/storage/pics/{{ $course->picture }}">
+                </div>
                 <p>Текущая: {{ $course->picture }}</p>
             </div>
             <div class="form-group">
