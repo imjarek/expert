@@ -23,7 +23,7 @@
             @if($block->contents->count() > 0)
                 <ul>@foreach($block->contents as $content)
                         <li><a href="/panel/content/{{ $content->id }}/edit">{{ $content->title }}</a>
-                        <p>{{ Str::limit($content->content, 256) }}</p>
+                        <p>{!! Str::limit($content->content, 256) !!}</p>
                     @endforeach
                     </li>
                 </ul>

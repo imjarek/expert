@@ -21,7 +21,17 @@
             </div>
             <div class="form-group">
                 <label for="description">Описание</label>
-                <input type="textarea" id="text-editor" class="form-control" name = "description" id="description" placeholder="Описание" value="{{ old('description') ?? $course->description }}">
+                <textarea class="form-control" name = "description" id="description" placeholder="Контент" rows="30" cols="80">
+                   {{ old('description') ?? $course->description }}
+                </textarea>
+                <script>
+                    CKEDITOR.replace( 'description', {
+                        height: 400
+                    }).catch( error => {
+                        console.log( error );
+                    } );
+
+                </script>
             </div>
             <div class="form-group">
                 <label for="type">Тип контента</label>
@@ -104,3 +114,4 @@
     </div>
 
 @endsection
+<script src="/ckeditor/ckeditor.js"></script>
