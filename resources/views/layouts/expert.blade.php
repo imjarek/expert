@@ -87,7 +87,7 @@
                     </a>
                 </li>
                 <li class="menu__item">
-                    <a href="/pages/news">
+                    <a href="/content/news">
                         Новости
                     </a>
                 </li>
@@ -152,7 +152,7 @@
                             </a>
                         </li>
                         <li class="footer-menu__item">
-                            <a href="/pages/news">
+                            <a href="/content/news">
                                 Новости
                             </a>
                         </li>
@@ -193,9 +193,9 @@
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
                     <div class="footer__soc">
-                        <a href="#" class="footer__soc_vk">
+                        <a href="https://vk.com/fit.expert" class="footer__soc_vk" target="_blank">
                         </a>
-                        <a href="#" class="footer__soc_ins">
+                        <a href="https://www.instagram.com/trening_rus/" class="footer__soc_ins" target="_blank">
                         </a>
                     </div>
                     <a href="#call-popup" class="footer__btn btn popup">
@@ -239,7 +239,7 @@
         </div>
         <div class="form-control">
             <input type="phone" class="" name="phone" placeholder="79009000090" required=""/>
-            <div class="g-recaptcha" data-sitekey="6LcQuMkUAAAAAGFCreb-TAQeED6p6_XeVOUqtiIZ"></div>
+{{--            <div class="g-recaptcha" data-sitekey="6LcQuMkUAAAAAGFCreb-TAQeED6p6_XeVOUqtiIZ"></div>--}}
         </div>
         <button class="btn" type="submit">Записаться!</button>
     </form>

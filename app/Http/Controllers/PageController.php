@@ -44,7 +44,7 @@ class PageController extends Controller
     }
 
     public function store($page, Request $request){
-        $request->validate(['content' => 'required']);
+        $request->validate(['page-content' => 'required']);
 
         if (!view()->exists("pages.$page")) {
             throw new \Exception('Страница не найдена');

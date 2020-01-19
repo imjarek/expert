@@ -14,11 +14,10 @@
 Route::get('/', function(){
     return redirect('main');
 });
+
 Route::get('/main', 'Controller@mainPage');
 
-Route::get('/news', function () {
-    return view('pages/news');
-});
+Route::get('/content/{block}', 'Controller@showContent');
 
 Route::get('/news/{id}', function () {
     return view('pages/new');
@@ -30,9 +29,11 @@ Route::post('image-upload', 'Controller@imageUploadPost');
 Route::get('pages/{page}', 'PageController@show');
 
 Route::prefix('panel')->middleware('auth')->group(function () {
-    Route::get('/', function () {
-        return redirect('/panel/courses');
-    });
+    Route::get('/', 'PanelController@index');
+    Route::get('/content/{id}/edit', 'PanelController@edit');
+    Route::get('/content/create', 'PanelController@create');
+    Route::post('/content', 'PanelController@store');
+    Route::post('/content/{id}', 'PanelController@update');
 
     Route::get('students', 'UsersController@getStudents');
     Route::get('admins', 'UsersController@getAdmins');

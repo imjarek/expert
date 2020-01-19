@@ -88,18 +88,11 @@
                 <h2 class="title wow slideInUp">
                     Запишитесь на курс
                 </h2>
-                <form action="#" method="post">
+                <form action="/enroll" method="post">
+                    @csrf
                     <div class="formItem">
                         <input name="name" type="text" placeholder="Имя">
                         <input name="phone" type="text" placeholder="Телефон">
-                    </div>
-                    <div class="formSelect">
-                        <select name="select-curses">
-                            <option value="">Выберите курс</option>
-                            <option>Курс 1</option>
-                            <option>Курс 2</option>
-                            <option>Курс 3</option>
-                        </select>
                     </div>
                     <button type="submit" class="formBtn btn">
                         Записаться

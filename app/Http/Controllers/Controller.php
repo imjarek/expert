@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use App\Block;
 
 class Controller extends BaseController
 {
@@ -48,5 +49,12 @@ class Controller extends BaseController
             $settings[$setting->system_name] = $setting['value'];
         }
         return $settings;
+    }
+
+    public function showContent($blockName) {
+
+        $block = Block::where('sys_name', $blockName)->first();
+
+        return view('content', ['block' => $block]);
     }
 }

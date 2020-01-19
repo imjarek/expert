@@ -62,9 +62,9 @@
 						</b>
 					</h3>
 					<div class="footer__soc">
-						<a href="http://vk.com/club181150794" class="footer__soc_vk">
+						<a href="https://vk.com/fit.expert" class="footer__soc_vk" target="_blank">
 						</a>
-						<a href="https://www.instagram.com/" class="footer__soc_ins">
+						<a href="https://www.instagram.com/trening_rus/" class="footer__soc_ins" target="_blank">
 						</a>
 					</div>
 				</div>

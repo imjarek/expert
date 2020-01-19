@@ -1,5 +1,3 @@
-
-
 @extends('layouts.panel')
 
 @section('title', 'Курсы')

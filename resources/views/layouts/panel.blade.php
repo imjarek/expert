@@ -14,7 +14,6 @@
     <!-- Custom fonts for this template-->
     <link href="/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <script src="/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
     <!-- Custom styles for this template-->
     <link href="/admin/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="/admin/css/panel.css" rel="stylesheet">
@@ -88,13 +87,13 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
                 <i class="fas fa-fw fa-file-alt"></i>
-                <span>Страницы</span>
+                <span>Контент</span>
             </a>
             <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Редактирование страниц</h6>
-                    <a class="collapse-item" href="/panel/pages/create">Создать страницу</a>
-                    <a class="collapse-item" href="/panel/pages">Страницы</a>
+                    <h6 class="collapse-header">Управление контентом</h6>
+                    <a class="collapse-item" href="/panel/content/create">Создать контент</a>
+                    <a class="collapse-item" href="/panel">Управлять контентом</a>
                 </div>
             </div>
         </li>
