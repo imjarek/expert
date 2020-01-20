@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="/libs/animate/animate.min.css">
     <link rel="stylesheet" href="/libs/popup/magnific-popup.css">
 
-    <link rel="stylesheet" href="/css/main.min.css">
+    <link rel="stylesheet" href="/css/main.css">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,600i,700&display=swap&subset=cyrillic" rel="stylesheet">
