@@ -19,7 +19,7 @@
 
                 <!-- program item -->
                     <div class="col-12 col-md-6 col-lg-4">
-                        <a href="/courses/{{ $course->id }}" class="programs__item" style="background-image: url(storage/pics/{{ $course->preview }}); background-size:contain">
+                        <a href="/courses/{{ $course->id }}" class="programs__item" style="background-image: url(storage/pics/{{ $course->preview }}); background-size:contain; background-repeat: no-repeat">
                             <div class="programs__top">
                                 <div class="programs__price">
                                     {{ $course->price }} руб
