@@ -137,6 +137,8 @@ class UsersController extends Controller
         $params['is_active'] = $params['is_active'] ?? 0;
         $user->update($params);
 
+        $user->role()->associate(Roles::find($params['role_id']))->save();
+        
         if (!empty($params['course_id'])) {
             $courses = $this->setAvailableCourses($user, $params['course_id']);
         } else {
